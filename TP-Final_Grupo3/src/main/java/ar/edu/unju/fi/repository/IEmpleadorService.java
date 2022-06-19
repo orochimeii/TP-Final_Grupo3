@@ -1,4 +1,4 @@
-package ar.edu.unju.fi.service;
+package ar.edu.unju.fi.repository;
 
 public interface IEmpleadorService {
 
