@@ -16,10 +16,6 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "empleadores")
 public class Empleador {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="ID")
-	private Long id;
-	
 	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CUIT")
 	private Long ciut;
