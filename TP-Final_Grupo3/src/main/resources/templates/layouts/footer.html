@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+	
+	</head>
+	
+	<body>
+		<footer th:fragment="footer">
+			<div class="container-fluid">
+				<div class="row p-5 pb-2 bg-dark text-white">
+					<div class="col-xs-12 col-md-6 col-lg-3">
+						<p class="h3 mb-3">Educación</p>
+						<p class="text-secondary">Av. Manuel Belgrano N° 120</p>
+					</div>
+					<div class="col-xs-12 col-md-6 col-lg-3">
+						<p class="h5 mb-3">Equipo</p>
+						<div class="mb-2">
+							<a class="text-secondary text-decoration-none" th:href="@{#}">Instructores</a>
+						</div>
+						<div class="mb-2">
+							<a class="text-secondary text-decoration-none" th:href="@{#}">Empresas</a>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 col-lg-3">
+						<p class="h5">Sitios de interés</p>
+					</div>
+					<div class="col-xs-12 col-md-6 col-lg-3">
+						<p class="h5">Contacto</p>
+					</div>
+					<div class="w-100">
+						<img id="logo" src="/images/logo-202.png" class="logo-footer float-end" alt="Logotipo UNJu" title="Logotipo UNJu"/>					
+					</div>
+					<div class="col-xs-12 pt-4"> 
+			    		<p class="text-white text-center">Copyright - Todos los derechos reservados 2022</p>
+			    	</div>
+				</div>
+			    
+			</div>
+		
+		</footer>
+	
+	</body>
+</html>
