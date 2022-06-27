@@ -1,4 +1,4 @@
-package ar.edu.unju.fi.repository;
+package ar.edu.unju.fi.service;
 
 public interface ICiudadanoService {
 
