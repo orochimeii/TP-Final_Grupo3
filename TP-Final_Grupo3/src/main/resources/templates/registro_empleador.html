@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Registro</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</head>
+	
+	<body>
+		<header th:replace="/layouts/header :: header"></header>
+		<div class="container col-4">
+			<br>
+			<p class="h4">Registrarse como empleador</p>
+			<br>
+	
+			<form th:action="@{/registro/empleador}" method="POST" th:object="${empleador}">
+			
+				<div class="mb-3">
+					<label for="cuit" class="form-label">CUIT</label> 
+					<input th:field=*{cuit} type="number" class="form-control" id="cuit" placeholder="00-000000000-0">
+				</div>
+				<div class="mb-3">
+					<label for="contrasenia" class="form-label">Contraseña</label> 
+					<input th:field=*{contrasenia} type="password" class="form-control" id="password" placeholder="********">
+				</div>
+				<div class="mb-3">
+					<label for="razonSocial" class="form-label">Razon social</label> 
+					<input th:field=*{razonSocial}  type="text" class="form-control" id="razonSocial" placeholder="Salchichas S.A.">
+				</div>
+				<div class="mb-3">
+					<label for="nombreComercial" class="form-label">Nombre comercial</label> 
+					<input th:field=*{nombreComercial} type="text" class="form-control" id="nombreComercial" placeholder="HotDoge">
+				</div>
+				<div class="mb-3">
+					<label for="inicioDeActividad" class="form-label">Inicio de actividad</label> 
+					<input th:field=*{inicioDeActividad} type="date" class="form-control" id="inicioDeActividad">
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label> 
+					<input th:field=*{email} type="email" class="form-control" id="email" placeholder="info@hotdoge.com">
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Telefono</label> 
+					<input th:field=*{telefono} type="number" class="form-control" id="telefono">
+				</div>
+				<div class="mb-3">
+					<label for="domicilio" class="form-label">Inicio de actividad</label> 
+					<input th:field=*{inicioDeActividad} type="date" class="form-control" id="inicioDeActividad">
+				</div>
+				<div class="mb-3">
+					<label for="provincia" class="form-label">Provincia</label> 
+					<input th:field=*{provincia} type="text" class="form-control" id="provincia">
+				</div>
+				<div class="mb-3">
+					<label for="paginaWeb" class="form-label">Pagina web</label> 
+					<input th:field=*{paginaWeb} type="text" class="form-control" id="paginaWeb" placeholder="Hotdoge.com.ar">
+				</div>
+				<div class="mb-3">
+					<label for="descripcion" class="form-label">Descripcion</label> 
+					<textarea th:field=*{descripcion} class="form-control" id="descripcion"></textarea>
+				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+					 <a th:href="@{/inicio}" id="cancel" name="cancel" class="btn btn-secondary">Cancelar</a>
+	  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
+				</div>
+			</form>
+		</div>
+		</br></br>
+		<footer th:replace="/layouts/footer :: footer"></footer>
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+	
+	
+	</body>
+</html>

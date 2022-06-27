@@ -6,36 +6,34 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.NotEmpty;
+
 @Entity
 @Table(name = "empleadores")
 public class Empleador {
 	@Id
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CUIT")
-	private Long ciut;
+	private Long cuit;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
 	private String contrasenia;
 	
 	@Column(name = "RAZON_SOCIAL")
 	private String razonSocial;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "NOMBRE_COMERCIAL")
 	private String nombreComercial;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "INICIO_ACTIVIDAD")
 	private LocalDate inicioDeActividad;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "EMAIL")
 	private String email;
 	
@@ -51,18 +49,18 @@ public class Empleador {
 	@Column(name = "PAGINA_WEB")
 	private String paginaWeb;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "empleador")
 	private List<Oferta> ofertas = new ArrayList<>();
 	
-	public Empleador(Long ciut, String contrasenia, String razonSocial, String nombreComercial,
+	public Empleador(Long cuit, String contrasenia, String razonSocial, String nombreComercial,
 			LocalDate inicioDeActividad, String email, String telefono, String domicilio, String provincia,
 			String paginaWeb, String descripcion) {
 		super();
-		this.ciut = ciut;
+		this.cuit = cuit;
 		this.contrasenia = contrasenia;
 		this.razonSocial = razonSocial;
 		this.nombreComercial = nombreComercial;
@@ -80,11 +78,11 @@ public class Empleador {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Long getCiut() {
-		return ciut;
+	public Long getcuit() {
+		return cuit;
 	}
-	public void setCiut(Long ciut) {
-		this.ciut = ciut;
+	public void setcuit(Long cuit) {
+		this.cuit = cuit;
 	}
 	public String getContrasenia() {
 		return contrasenia;
