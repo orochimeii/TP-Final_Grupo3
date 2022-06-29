@@ -20,12 +20,14 @@
 							<th>Email</th>
 							<th>Telefono</th>
 							<th>Pagina Web</th>
+							<th>Provincia</th>
 						</tr>	
 						<tr th:each="empleador: ${empleadores}">
 							<td th:text="${empleador.nombreComercial}"></td>
 							<td th:text="${empleador.email}"></td>
 							<td th:text="${empleador.telefono}"></td>
 							<td th:text="${empleador.paginaWeb}"></td>
+							<td th:text="${empleador.provincia}"></td>
 						</tr>
 					</table>
 				<br><br>
