@@ -1,7 +1,9 @@
 package ar.edu.unju.fi.service.imp;
 
-import ar.edu.unju.fi.service.ICVService;
+import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.service.ICVService;
+@Service
 public class CVServiceImp implements ICVService {
 
 }

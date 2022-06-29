@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Empleador;
+import ar.edu.unju.fi.repository.ICiudadanoDAO;
 import ar.edu.unju.fi.repository.IEmpleadorDAO;
 
 @Service
@@ -21,19 +23,32 @@ public class UsuarioDetailsServiceImp implements UserDetailsService {
 	@Autowired
 	private IEmpleadorDAO empleadorDao;
 	
+	@Autowired
+	private ICiudadanoDAO ciudadanoDao;
+	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		LOGGER.info(email);
-		Empleador empleador = empleadorDao.findByEmail(email);
+	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+		LOGGER.info(id);
+		Empleador empleador = empleadorDao.findByEmail(id);
 		LOGGER.info(empleador);
 		UserBuilder builder = null;
 		if(empleador != null) {
-			builder = User.withUsername(email);
+			builder = User.withUsername(id);
 			builder.disabled(false);
 			builder.password(empleador.getContrasenia());
-			builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
+			builder.authorities(new SimpleGrantedAuthority("EMPLEADOR"));
 		}else {
-			throw new UsernameNotFoundException("Usuario no encontrado");
+			LOGGER.info(id);
+			Ciudadano ciudadano = ciudadanoDao.findByDni(id);
+			LOGGER.info(ciudadano);
+			if(ciudadano != null) {
+				builder = User.withUsername(id);
+				builder.disabled(false);
+				builder.password(ciudadano.getContrasenia());
+				builder.authorities(new SimpleGrantedAuthority("CIUDADANO"));
+			}else {
+				throw new UsernameNotFoundException("Usuario no encontrado");
+			}
 		}
 		return builder.build();
 	}
