@@ -28,7 +28,8 @@
 								<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
 							</div>
 					</div>
-					<div class="row pt-3 mb-3">
+					<br>
+					<div class="row">
 						<div class="col">
 							<label class="form-label">Fecha de Nacimiento</label> 
 							<input type="date" class="form-control" placeholder="Fecha de Nacimiento" th:field="*{fechaNacimiento}">
@@ -39,6 +40,32 @@
 							<input type="number" class="form-control" placeholder="DNI" th:field="*{dni}">
 							<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col">
+							<div >
+								<label class="form-label">País de residencia</label>
+								<select class="form-select" aria-label="Nacionalidad" th:field=*{nacionalidad}>
+									<option value="Altos" >Argentina</option>
+									<option value="Medios">Brasil</option>
+									<option value="Bajos">Chile</option>
+								</select>
+								<div class="text-danger" th:if="${#fields.hasErrors('nacionalidad')}" th:errors="*{nacionalidad}"></div>
+							</div>
+						</div>
+						<div class="col">
+							<div>
+								<label class="form-label">ㅤ</label>
+								<input type="text" class="form-control" placeholder="Provincia" th:field="*{provincia}">
+								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div>
+						<input type="text" class="form-control" placeholder="Domicilio" th:field="*{domicilio}">
+						<div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
 					</div>
 				</div>
 			</div>
@@ -68,26 +95,30 @@
 				<div class="card-body">
 					<div >
 						<label class="mb-2 form-label">Conocimientos Informaticos</label>
-						<select class="form-select" aria-label="Nacionalidad" th:field=*{nacionalidad}>
+						<select class="form-select" aria-label="Conocimientos" th:field=*{conocimientosInformaticos}>
 							<option value="Altos" >Altos</option>
 							<option value="Medios">Medios</option>
 							<option value="Bajos">Bajos</option>
 						</select>
+						<div class="text-danger" th:if="${#fields.hasErrors('conocimientosInformaticos')}" th:errors="*{conocimientosInformaticos}"></div>
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" placeholder="Leave a comment here" id="informacionComplementaria" style="height: 100px"></textarea>
+						<textarea class="form-control" id="informacionComplementaria" style="height: 100px" th:field="*{informacionComplementaria}"></textarea>
 						<label for="informacionComplementaria">Informacion Complementaria</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('informacionComplementaria')}" th:errors="*{informacionComplementaria}"></div>
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" placeholder="Leave a comment here" id="datosAdicionales" style="height: 100px"></textarea>
+						<textarea class="form-control" id="datosAdicionales" style="height: 100px" th:field="*{datosAdicionales}"></textarea>
 						<label for="datosAdicionales">Datos Adicionales</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('datosAdicionales')}" th:errors="*{datosAdicionales}"></div>
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" placeholder="Leave a comment here" id="idioma" style="height: 100px"></textarea>
+						<textarea class="form-control" id="idioma" style="height: 100px" th:field="*{idiomas}"></textarea>
 						<label for="idioma">Idiomas</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('idiomas')}" th:errors="*{idiomas}"></div>
 					</div>
 				</div>
 			</div>
