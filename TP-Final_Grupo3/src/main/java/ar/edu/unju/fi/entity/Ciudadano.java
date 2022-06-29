@@ -119,10 +119,10 @@ public class Ciudadano {
 	public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
-	public String getcontrasenia() {
+	public String getContrasenia() {
 		return contrasenia;
 	}
-	public void setcontrasenia(String contrasenia) {
+	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
 	public CV getCv() {

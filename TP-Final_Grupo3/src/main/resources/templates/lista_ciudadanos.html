@@ -9,34 +9,25 @@
 	
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
-		<div class="container">
+	<div class="container">
 			<br>
-			<p class="h4 mb-10">Alumnos</p>
-			<br>
-			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			   <a th:href="@{/alumno/nuevo}" id="nuevo" class="btn btn-warning">Nuevo</a>
-			</div>
+			<p class="h4 mb-10">Empleadores</p>
 			<br>
 			<div class="col-12 d-flex justify-content-center">
 				<table class="table table-striped table-hover">
 						<tr>
-							<th>D.N.I</th>
-							<th>Apellidos</th>
-							<th>Nombres</th>
-							<th>E-mail</th>
-							<th>Teléfono</th>
-							<th>Opciones</th>
+							<th>DNI</th>
+							<th>N° de Tramite</th>
+							<th>Telefono</th>
+							<th>Email</th>
+							<th>Provincia</th>
 						</tr>	
-						<tr th:each="alumno: ${alumnos}">
-							<td th:text="${alumno.dni}"></td>
-							<td th:text="${alumno.apellido}"></td>
-							<td th:text="${alumno.nombre}"></td>
-							<td th:text="${alumno.email}"></td>
-							<td th:text="${alumno.telefono}"></td>
-							<td>
-							<a href="#" id="editarAlumno" class="btn btn-outline-warning">Editar</a>
-							<a href="#" id="eliminarAlumno" class="btn btn-outline-danger">Eliminar</a>
-							</td>
+						<tr th:each="empleador: ${empleadores}">
+							<td th:text="${empleador.dni}"></td>
+							<td th:text="${empleador.numeroDeTramite}"></td>
+							<td th:text="${empleador.telefono}"></td>
+							<td th:text="${empleador.email}"></td>
+							<td th:text="${empleador.privincia}"></td>
 						</tr>
 					</table>
 				<br><br>
