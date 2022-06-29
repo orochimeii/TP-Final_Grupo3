@@ -1,4 +1,3 @@
-<<<<<<< CarrilloMax
 package ar.edu.unju.fi.service.imp;
 
 import java.util.List;
@@ -27,14 +26,3 @@ public class CursoServiceImp implements ICursoService {
 	}
 
 }
-=======
-package ar.edu.unju.fi.service.imp;
-
-import org.springframework.stereotype.Service;
-
-import ar.edu.unju.fi.service.ICursoService;
-@Service
-public class CursoServiceImp implements ICursoService {
-
-}
->>>>>>> master
