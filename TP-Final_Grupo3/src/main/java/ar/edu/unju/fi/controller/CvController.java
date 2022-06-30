@@ -29,7 +29,7 @@ public class CvController {
 	}
 	
 	@PostMapping("/crear")
-	public ModelAndView ahre(@Validated @ModelAttribute("cvAlias") CV cv, BindingResult bindingResult) {
+	public ModelAndView cargarCurriculo(@Validated @ModelAttribute("cvAlias") CV cv, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			ModelAndView modeloVista = new ModelAndView("crear_cv");
 			modeloVista.addObject("cvAlias", cv);
