@@ -28,7 +28,7 @@ public class CvController {
 		return "crear_cv";
 	}
 	
-	@PostMapping("")
+	@PostMapping("/crear")
 	public ModelAndView ahre(@Validated @ModelAttribute("cvAlias") CV cv, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			ModelAndView modeloVista = new ModelAndView("crear_cv");
@@ -36,7 +36,7 @@ public class CvController {
 			return modeloVista;
 		}
 		
-		ModelAndView modeloVista = new ModelAndView("redirect:/login");
+		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		return modeloVista;
 	}
 	
