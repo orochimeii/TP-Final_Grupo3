@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</head>
+<body>
+<header th:replace="/layouts/header :: header"></header>
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<ul class="list-group list-group-horizontal justify-content-center">
+			  <li class="list-group-item"><a class="nav-link active" aria-current="page" th:href="@{/login/empleador}">Empleador</a></li>
+			  <li class="list-group-item"><a class="nav-link active" aria-current="page" th:href="@{/login/ciudadano}">Ciudadano</a></li>
+			</ul>
+			<div th:if="${param.error}" class="alert alert-danger mb-3">
+				Credenciales incorrectas
+			</div>
+			<div class="card">
+				<div class="card-header">
+					 <h4>Iniciar sesion</h4>
+				</div>
+				<div class="card-body">
+					<form th:action="@{/login/ciudadano}" method="POST">
+					  <div class="row form-group">
+					    <label for="id">DNI</label>
+					    <input type="text" name="id" class="form-control col-md-7" id="id" aria-describedby="id" placeholder="Ingrese dni">
+					  </div>
+					  <div class="row form-group">
+					    <label for="password">Password</label>
+					    <input type="password" name="password" class="form-control col-md-7" id="password" placeholder="Password">
+					  </div>
+					  <div class="row form-group">
+					  	<button type="submit" class="btn btn-primary btn-block col-md-7 offset-3 mt-3">iniciar session</button>
+					  </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
