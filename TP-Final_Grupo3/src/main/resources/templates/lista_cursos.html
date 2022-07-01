@@ -22,20 +22,28 @@
 								<p class="card-subtitle" th:text="*{curso.docente}"></p>
 							</div>	
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item" th:text="*{fechaInicio}+'-'+*{fechaFin}"></li>
-								<li class="list-group-item" th:text="'Horas totales: '+*{cantidadHoras}"></li>
+								<li class="list-group-item text-primary" th:text="'Inicia el: '+*{curso.fechaInicio}"></li>
+								<li class="list-group-item text-primary" th:text="'Termina el: '+*{curso.fechaFin}"></li>
+								<li class="list-group-item" th:text="'Horas totales: '+*{curso.cantidadHoras}"></li>
+								<li class="list-group-item">
+									<p class="card-text"><small class="text-muted" th:text="*{curso.categoria}"></small></p>
+								</li>
 							</ul>				    
-						    <div class="card-footer">
-						     	<p class="card-text"><small class="text-muted" th:text="*{curso.categoria}"></small></p>
+						    <div class="card-footer mx-auto">
+						     	<a th:href="@{/inicio}" class="btn btn-outline-primary btn-sm">Inscribirme</a>
 						    </div>
 					    </div>
 					 </div>
 				</div>
 			</div>
 			<br>
-			<a th:href="@{/inicio}" class="btn btn-outline-dark">Volver</a>
+			<div class="container mb-5 ">
+				<a th:href="@{/inicio}" class="btn btn-outline-dark">Volver</a>
+			</div>
+			
 		</div>
 		
+		<footer th:replace="layouts/footer::footer"></footer>
 		
 		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 		<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
