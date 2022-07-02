@@ -24,8 +24,8 @@ public class EmpladorServiceImp implements IEmpleadorService {
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
-	public Empleador findByEmail(String email) {
-		return empleadorDao.findByEmail(email);
+	public Empleador findByCuit(String cuit) {
+		return empleadorDao.findByCuit(Long.parseLong(cuit));
 	}
 
 	@Override
