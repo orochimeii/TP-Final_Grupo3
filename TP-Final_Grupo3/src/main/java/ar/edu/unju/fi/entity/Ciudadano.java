@@ -18,9 +18,9 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "ciudadanos")
 public class Ciudadano {
 	@Id
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DNI")
-	private int dni;
+	private Long dni;
 	
 	@Column(name = "TRAMITE_NUMERO")
 	private int numeroDeTramite;
@@ -40,7 +40,7 @@ public class Ciudadano {
 	@Column(name = "TELEFONO")
 	private String telefono;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "FECHA_NACIMIENTO")
 	private LocalDate fechaDeNacimiento;
 	
@@ -54,7 +54,7 @@ public class Ciudadano {
 				inverseJoinColumns = {@JoinColumn(name = "oferta_id")})
 	private List<Oferta> ofertas = new ArrayList<Oferta>();
 	
-	public Ciudadano(int dni, int numeroDeTramite, String email, String estadoCivil, String privincia, String telefono,
+	public Ciudadano(Long dni, int numeroDeTramite, String email, String estadoCivil, String privincia, String telefono,
 			LocalDate fechaDeNacimiento, String contrasenia) {
 		super();
 		this.dni = dni;
@@ -71,10 +71,10 @@ public class Ciudadano {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int getDni() {
+	public Long getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(Long dni) {
 		this.dni = dni;
 	}
 	public int getNumeroDeTramite() {
