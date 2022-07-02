@@ -7,6 +7,6 @@ import ar.edu.unju.fi.entity.Ciudadano;
 
 @Repository
 public interface ICiudadanoDAO extends JpaRepository<Ciudadano, Long>{
-	public Ciudadano findByDni(String dni);
+	public Ciudadano findByDni(Long dni);
 
 }

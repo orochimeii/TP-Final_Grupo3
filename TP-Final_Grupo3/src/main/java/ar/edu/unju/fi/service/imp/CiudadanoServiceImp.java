@@ -20,7 +20,7 @@ public class CiudadanoServiceImp implements ICiudadanoService {
 	
 	@Override
 	public Ciudadano findByDni(String dni) {
-		return ciudadanoDao.findByDni(dni);
+		return ciudadanoDao.findByDni(Long.parseLong(dni));
 	}
 
 	@Override

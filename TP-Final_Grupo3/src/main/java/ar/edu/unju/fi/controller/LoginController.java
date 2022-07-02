@@ -13,12 +13,6 @@ import org.apache.commons.logging.LogFactory;
 public class LoginController {
 	private static final Log LOGGER = LogFactory.getLog(LoginController.class);
 	
-//	@GetMapping("/login/ciudadano")
-//	public String getLogin() {
-//		LOGGER.info("login");
-//		return "login_ciudadano";
-//	}
-	
 	@GetMapping("/login/empleador")
 	public String getLoginEmpleador(Model model) {
 		LOGGER.info("empleador login");

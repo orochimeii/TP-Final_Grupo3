@@ -58,7 +58,7 @@ public class Empleador {
 	
 	public Empleador(Long cuit, String contrasenia, String razonSocial, String nombreComercial,
 			LocalDate inicioDeActividad, String email, String telefono, String domicilio, String provincia,
-			String paginaWeb, String descripcion) {
+			String paginaWeb, String descripcion, List<Oferta> ofertas) {
 		super();
 		this.cuit = cuit;
 		this.contrasenia = contrasenia;
