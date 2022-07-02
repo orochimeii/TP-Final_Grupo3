@@ -29,7 +29,7 @@ public class UsuarioDetailsServiceImp implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		LOGGER.info(id);
-		Empleador empleador = empleadorDao.findByEmail(id);
+		Empleador empleador = empleadorDao.findByCuit(Long.parseLong(id));
 		LOGGER.info(empleador);
 		UserBuilder builder = null;
 		if(empleador != null) {
@@ -39,7 +39,7 @@ public class UsuarioDetailsServiceImp implements UserDetailsService {
 			builder.authorities(new SimpleGrantedAuthority("EMPLEADOR"));
 		}else {
 			LOGGER.info(id);
-			Ciudadano ciudadano = ciudadanoDao.findByDni(id);
+			Ciudadano ciudadano = ciudadanoDao.findByDni(Long.parseLong(id));
 			LOGGER.info(ciudadano);
 			if(ciudadano != null) {
 				builder = User.withUsername(id);

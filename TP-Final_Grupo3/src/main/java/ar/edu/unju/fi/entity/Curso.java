@@ -110,5 +110,11 @@ public class Curso {
 		this.modalidad = modalidad;
 		this.docente = docente;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Curso [id=" + id + ", titulo=" + titulo + ", categoria=" + categoria + ", fechaInicio=" + fechaInicio
+				+ ", fechaFin=" + fechaFin + ", cantidadHoras=" + cantidadHoras + ", modalidad=" + modalidad
+				+ ", docente=" + docente + "]";
+	}
 }

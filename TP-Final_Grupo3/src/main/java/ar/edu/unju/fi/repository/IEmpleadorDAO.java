@@ -7,5 +7,5 @@ import ar.edu.unju.fi.entity.Empleador;
 
 @Repository
 public interface IEmpleadorDAO extends JpaRepository<Empleador, Long>{
-	public Empleador findByEmail(String email);
+	public Empleador findByCuit(Long cuit);
 }

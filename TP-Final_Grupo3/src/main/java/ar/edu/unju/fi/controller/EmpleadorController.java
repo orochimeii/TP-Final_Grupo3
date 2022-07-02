@@ -16,12 +16,12 @@ import ar.edu.unju.fi.entity.Empleador;
 import ar.edu.unju.fi.service.IEmpleadorService;
 
 @Controller
+@RequestMapping("/empleador")
 public class EmpleadorController {
 	
 	@Autowired
 	private IEmpleadorService empleadorService;
 	
-	@RequestMapping("/empleador")
 	
 	@GetMapping("/empleadores")
 	public ModelAndView getListaEmpleadores() {

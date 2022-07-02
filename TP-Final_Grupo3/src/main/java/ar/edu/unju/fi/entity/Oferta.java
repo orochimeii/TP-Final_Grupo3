@@ -68,13 +68,13 @@ public class Oferta {
 	private boolean disponible;
 	
 	@Autowired
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "EMPLEADOR_ID")
 	private Empleador empleador;
 	
 	public Oferta(int cantidadDeVacantes, String puestoRequerido, String resumenPuesto, String disponibilidad,
 			ArrayList<String> tareasPrincipales, ArrayList<String> datosContacto, String jornada, String requisitos,
-			double salario, String beneficios, boolean disponible) {
+			double salario, String beneficios, boolean disponible, Empleador empleador) {
 		super();
 		this.cantidadDeVacantes = cantidadDeVacantes;
 		this.puestoRequerido = puestoRequerido;

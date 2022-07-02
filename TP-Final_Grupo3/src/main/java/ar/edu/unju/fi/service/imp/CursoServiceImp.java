@@ -16,6 +16,11 @@ public class CursoServiceImp implements ICursoService {
 	CursoRepository cursoRepository;
 	
 	@Override
+	public void agregarCurso(Curso curso) {
+		cursoRepository.save(curso);
+	}
+	
+	@Override
 	public List<Curso> obtenerCursos() {
 		return cursoRepository.findAll();
 	}
