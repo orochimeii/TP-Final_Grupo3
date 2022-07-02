@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -54,8 +55,13 @@ public class Ciudadano {
 				inverseJoinColumns = {@JoinColumn(name = "oferta_id")})
 	private List<Oferta> ofertas = new ArrayList<Oferta>();
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="FK_CV")
+	private CV curriculumVitae;
+	
 	public Ciudadano(Long dni, int numeroDeTramite, String email, String estadoCivil, String privincia, String telefono,
-			LocalDate fechaDeNacimiento, String contrasenia) {
+			LocalDate fechaDeNacimiento, String contrasenia, List<Oferta> ofertas, CV curriculumVitae) {
+
 		super();
 		this.dni = dni;
 		this.numeroDeTramite = numeroDeTramite;
@@ -65,6 +71,7 @@ public class Ciudadano {
 		this.telefono = telefono;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 		this.contrasenia = contrasenia;
+		this.curriculumVitae = curriculumVitae;
 	}
 	public Ciudadano() {
 		super();
@@ -119,4 +126,11 @@ public class Ciudadano {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+	public CV getCv() {
+		return curriculumVitae;
+	}
+	public void setCv(CV curriculumVitae) {
+		this.curriculumVitae = curriculumVitae;
+	}
+	
 }
