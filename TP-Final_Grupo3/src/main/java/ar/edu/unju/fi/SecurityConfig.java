@@ -28,6 +28,10 @@ public class SecurityConfig {
 		http.authorizeRequests().antMatchers("/login/*").permitAll().antMatchers("/", "/inicio","/login/*", "/empleador/registro", "/ciudadano/registro").permitAll().antMatchers(resources).permitAll().anyRequest()
 				.authenticated().and().formLogin().loginPage("/login").permitAll().successHandler(autenticacion)
 				.failureUrl("/login?error=true").usernameParameter("id").passwordParameter("password").and().logout()
+				.logoutUrl("/logout")
+				.invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID")
+				.logoutSuccessUrl("/login/ciudadano")
 				.permitAll();
 
 		http.headers().frameOptions().sameOrigin();

@@ -36,15 +36,17 @@ public class UsuarioDetailsServiceImp implements UserDetailsService {
 			builder = User.withUsername(id);
 			builder.disabled(false);
 			builder.password(empleador.getContrasenia());
+			builder.roles("EMPLEADOR");
 			builder.authorities(new SimpleGrantedAuthority("EMPLEADOR"));
 		}else {
 			LOGGER.info(id);
 			Ciudadano ciudadano = ciudadanoDao.findByDni(Long.parseLong(id));
 			LOGGER.info(ciudadano);
 			if(ciudadano != null) {
-				builder = User.withUsername(id);
+				builder = User.withUsername(ciudadano.getEmail());
 				builder.disabled(false);
 				builder.password(ciudadano.getContrasenia());
+				builder.roles("CIUDADANO");
 				builder.authorities(new SimpleGrantedAuthority("CIUDADANO"));
 			}else {
 				throw new UsernameNotFoundException("Usuario no encontrado");

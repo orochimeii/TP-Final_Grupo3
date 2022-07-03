@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -53,8 +54,8 @@ public class Empleador {
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "empleador")
-	private List<Oferta> ofertas = new ArrayList<>();
+	@OneToMany(mappedBy = "empleador", cascade = CascadeType.ALL)
+	private List<Oferta> ofertas = new ArrayList<Oferta>();
 	
 	public Empleador(Long cuit, String contrasenia, String razonSocial, String nombreComercial,
 			LocalDate inicioDeActividad, String email, String telefono, String domicilio, String provincia,
