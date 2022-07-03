@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<head>
 		<meta charset="UTF-8">
 		
@@ -9,62 +9,65 @@
 	
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
-	<div class="formulario">
+		<div class="formulario">
 			
-			<form th:action="@{/registro/empleador}" method="POST" th:object="${empleador}">
-	        <div class="card">
-			<div class="card-header">
-					 <h4>Cree una oferta Laboral</h4>
-				
-				</div>
-				<div class="mb-3">
-					<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
-					<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
-				</div>
+			<form th:action="@{/crear_oferta}" method="POST" th:object="${oferta}">
+		        <div class="card">
+					<div class="card-header">
+						 <h4>Cree una oferta Laboral</h4>
+					
+					</div>
 					<div class="mb-3">
-					<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
-					<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000">
-				</div>
-				<div class="mb-3">
-					<label for="resumenPuesto" class="form-label">Resumen</label> 
-					<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="">
-				</div>
-				<div class="mb-3">
-					<label for="disponibilidad" class="form-label">Disponibilidad Horaria</label> 
-					<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00">
-				</div>
-				<div class="mb-3">
-					<label for="datosContacto" class="form-label">Datos de Contacto</label> 
-					<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto">
-				</div>
+						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
+						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
+					</div>
 					<div class="mb-3">
-					<label for="jornada" class="form-label">Jornada</label> 
-					<input th:field=*{jornada} type="number" class="form-control" id="jornada">
-				</div>
+						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
+						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000">
+					</div>
 					<div class="mb-3">
-					<label for="requisitos" class="form-label">Requisitos</label> 
-					<input th:field=*{requisitos} type="text" class="form-control" id="requisitos">
-				</div>
-				<div class="mb-3">
-					<label for="salario" class="form-label">Salario</label> 
-					<input th:field=*{salario} type="number" class="form-control" id="salario">
-				</div>
+						<label for="resumenPuesto" class="form-label">Resumen</label> 
+						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="">
+					</div>
 					<div class="mb-3">
-					<label for="beneficios" class="form-label">Beneficios</label> 
-					<input th:field=*{beneficios} type="number" class="form-control" id="beneficios">
-				</div>
+						<label for="disponibilidad" class="form-label">Disponibilidad Horaria</label> 
+						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00">
+					</div>
 					<div class="mb-3">
-					<label for="disponible" class="form-label">Disponible</label> 
-					<input th:field=*{disponible} type="bol" class="form-control" id="disponible">
+						<label for="datosContacto" class="form-label">Datos de Contacto</label> 
+						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto">
+					</div>
+					<div class="mb-3">
+						<label for="jornada" class="form-label">Jornada</label> 
+						<input th:field=*{jornada} type="text" class="form-control" id="jornada">
+					</div>
+					<div class="mb-3">
+						<label for="requisitos" class="form-label">Requisitos</label> 
+						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos">
+					</div>
+					<div class="mb-3">
+						<label for="salario" class="form-label">Salario</label> 
+						<input th:field=*{salario} type="number" class="form-control" id="salario">
+					</div>
+					<div class="mb-3">
+						<label for="beneficios" class="form-label">Beneficios</label> 
+						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios">
+					</div>
+					<div class="mb-3">
+						<label for="disponible" class="form-label">Disponible</label> 
+						<input th:field=*{disponible} type="text" class="form-control" id="disponible">
+					</div>
+					<div class="mb-3" sec:authorize="!isAuthenticated()"> 
+						<input th:field='sec:authentication="name"' type="hidden" class="form-control" id="empleador">
+					</div>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+						<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+						 <a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+		  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
+					</div>
 				</div>
-				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
-					 <a th:href="@{/inicio}" id="cancel" name="cancel" class="btn btn-secondary">Cancelar</a>
-	  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
-				</div>
-				
 			</form>
-	</div>
+		</div>
 		<footer th:replace="/layouts/footer :: footer"></footer>
 		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 		<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
