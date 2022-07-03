@@ -57,6 +57,22 @@ public class Empleador {
 	@OneToMany(mappedBy = "empleador", cascade = CascadeType.ALL)
 	private List<Oferta> ofertas = new ArrayList<Oferta>();
 	
+	public Long getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(Long cuit) {
+		this.cuit = cuit;
+	}
+
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
+
 	public Empleador(Long cuit, String contrasenia, String razonSocial, String nombreComercial,
 			LocalDate inicioDeActividad, String email, String telefono, String domicilio, String provincia,
 			String paginaWeb, String descripcion, List<Oferta> ofertas) {
