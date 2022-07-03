@@ -10,12 +10,11 @@
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
 		<div class="formulario">
-			
-			<form th:action="@{/crear_oferta}" method="POST" th:object="${oferta}">
+			<form th:action="@{/ofertas}" method="POST" th:object="${oferta}">
+				<input type="hidden" th:field="*{id}">
 		        <div class="card">
 					<div class="card-header">
 						 <h4>Cree una oferta Laboral</h4>
-					
 					</div>
 					<div class="mb-3">
 						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
@@ -61,7 +60,7 @@
 						<input th:field='sec:authentication="name"' type="hidden" class="form-control" id="empleador">
 					</div>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-						<button class="btn btn-primary me-md-2" type="submit">Enviar</button>
+						<button class="btn btn-primary me-md-2" type="submit">Guardar</button>
 						 <a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
 		  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
 					</div>

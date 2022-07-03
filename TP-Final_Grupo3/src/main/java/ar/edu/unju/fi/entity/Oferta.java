@@ -25,35 +25,35 @@ public class Oferta {
 	@Column(name = "ID")
 	private Long id;
 	
-	@Min(value=1, message="El valor mínimo es 1")
-	@Max(value=9999,message="El valor máximo permitido es 9999")
+//	@Min(value=1, message="El valor mínimo es 1")
+//	@Max(value=9999,message="El valor máximo permitido es 9999")
 	@Column(name = "VACANTES")
 	private int cantidadDeVacantes;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "PUESTO")
 	private String puestoRequerido;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "RESUMEN")
 	private String resumenPuesto;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DISPONIBILIDAD")
 	private String disponibilidad;
 	
 	@Column(name = "TAREAS")
 	private ArrayList <String> tareasPrincipales;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CONTACTO")
 	private ArrayList <String> datosContacto;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "JORNADA")
 	private String jornada;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "REQUISITOS")
 	private String requisitos;
 	
@@ -63,14 +63,13 @@ public class Oferta {
 	@Column(name = "BENEFICIOS")
 	private String beneficios;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DISPONIBLE")
 	private boolean disponible;
 	
-	@Autowired
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "EMPLEADOR_ID")
-	private Empleador empleador;
+	Empleador empleador;
 	
 	public Oferta(int cantidadDeVacantes, String puestoRequerido, String resumenPuesto, String disponibilidad,
 			ArrayList<String> tareasPrincipales, ArrayList<String> datosContacto, String jornada, String requisitos,
@@ -87,6 +86,7 @@ public class Oferta {
 		this.salario = salario;
 		this.beneficios = beneficios;
 		this.disponible = disponible;
+		this.empleador = empleador;
 	}
 	
 	public Oferta() {
