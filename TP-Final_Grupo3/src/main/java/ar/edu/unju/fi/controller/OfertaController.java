@@ -1,10 +1,14 @@
 package ar.edu.unju.fi.controller;
 
 import java.security.Principal;
+import java.util.Collection;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,9 +36,22 @@ public class OfertaController {
 	private IEmpleadorService empleadorService;
 	
 	@GetMapping("/ofertas")
-	public ModelAndView getOfertaPage(Model model) {
-		ModelAndView mav = new ModelAndView("lista_ofertas");
-		mav.addObject("ofertas", ofertaService.getOfertas());
+	public ModelAndView getOfertaPage(Model model, Authentication authentication) {
+		ModelAndView mav = null;
+		LOGGER.info(authentication.getAuthorities());
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+		for(GrantedAuthority c: authorities) {
+			if(c.getAuthority().equalsIgnoreCase("empleador")) {
+				Empleador empleador = empleadorService.findByCuit(authentication.getName());
+				mav = new ModelAndView("lista_ofertas");
+				mav.addObject("ofertas", empleador.getOfertas());
+				LOGGER.info("=========IF");
+			}else {
+				mav = new ModelAndView("lista_ofertas");
+				mav.addObject("ofertas", ofertaService.getOfertas());
+				LOGGER.info("===========ELSE");
+			}
+		}
 		return mav;
 	}
 	
