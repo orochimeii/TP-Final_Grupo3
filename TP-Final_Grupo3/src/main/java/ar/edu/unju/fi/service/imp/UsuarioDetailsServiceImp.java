@@ -43,7 +43,7 @@ public class UsuarioDetailsServiceImp implements UserDetailsService {
 			Ciudadano ciudadano = ciudadanoDao.findByDni(Long.parseLong(id));
 			LOGGER.info(ciudadano);
 			if(ciudadano != null) {
-				builder = User.withUsername(ciudadano.getEmail());
+				builder = User.withUsername(id);
 				builder.disabled(false);
 				builder.password(ciudadano.getContrasenia());
 				builder.roles("CIUDADANO");
