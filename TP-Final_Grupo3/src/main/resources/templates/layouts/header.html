@@ -10,50 +10,67 @@
 	<body>
 		<header id="header-principal" class="bg-dark" th:fragment="header">
 			<div class="container-fluid">
-			    
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					   <img id="logo" th:src="@{/images/Gruop3.png}" class="logo" width="40" height="40"/>
-				  <div class="container-fluid">
-				    <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
-				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				      <span class="navbar-toggler-icon"></span>
-				    </button>
-				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				        <li class="nav-item">
-				          <a class="nav-link active" th:href="@{/ofertas}">Ofertas Laborales</a>
-				        </li>
-				        <li class="nav-item">
-				          <a class="nav-link active" th:href="@{/empleador}">Empleadores</a>
-				        </li>
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Cursos
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item" th:href="@{/cursos/desarrollo}">Desarrollo web</a></li>
-				            <li><a class="dropdown-item" th:href="@{/cursos/ingles}">Ingles</a></li>
-				            <li><hr class="dropdown-divider"></li>
-				            <li><a class="dropdown-item" th:href="@{/cursos/seguridad}">Seguridad</a></li>
-				            <li><a class="dropdown-item" th:href="@{/cursos/disenio}">Diseño UX/UI</a></li>
-				          </ul>
-				        </li>
-				      </ul>
-				      <form class="d-flex">
-				        <input class="form-control me-2" type="search" placeholder="buscar" aria-label="Search">
-				        <button class="btn btn-outline-warning" type="submit">Buscar</button>
-				      </form>
-				      <ul class="navbar-nav me-0 mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" th:href="@{/login/ciudadano}">Login</a>
-						</li>
-				      	<li>
-				      		<a class="btn btn-warning" aria-current="page" th:href="@{/empleador/registro}">Crear cuenta</a>
-				      	</li>
-				      </ul>
-				    </div>
-			  </div>
-			</nav>
+					<img id="logo" th:src="@{/images/Gruop3.png}" class="logo" width="40" height="40"/>
+				  	<div class="container-fluid">
+				    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						      	<li class="nav-item">
+						        	<a class="nav-link active" th:href="@{/inicio}">Inicio</a>
+						        </li>
+						        <li class="nav-item">
+						          	<a class="nav-link active" th:href="@{/ofertas}">Ofertas Laborales</a>
+						        </li>
+						        <li class="nav-item">
+						          	<a class="nav-link active" th:href="@{/empleador}">Empleadores</a>
+						        </li>
+				      		</ul>
+					    	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					    		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					    			<li class="nav-item dropdown">
+							        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							            	Ciudadano
+							          	</a>
+							        	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        		<li><a class="dropdown-item" th:href="@{/cv/crear}">CV</a></li>
+								            <li><a class="dropdown-item" href="#">Perfil</a></li>
+								            <li><hr class="dropdown-divider"></li>
+								            <li><a class="dropdown-item" href="#">Modificar</a></li>
+								            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+							        	</ul>
+						        	</li>
+					    		</ul>
+					    		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					    			<li class="nav-item dropdown">
+							        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							            	Empleador
+							          	</a>
+							        	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        		<li><a class="dropdown-item" href="#">Crear Oferta</a></li>
+								            <li><a class="dropdown-item" href="#">Perfil</a></li>
+								            <li><hr class="dropdown-divider"></li>
+								            <li><a class="dropdown-item" href="#">Modificar</a></li>
+								            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+							        	</ul>
+						        	</li>
+					    		</ul>
+					    		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					    			<li class="nav-item dropdown">
+							        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							            	Crear cuenta
+							          	</a>
+							        	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        		<li><a class="dropdown-item" th:href="@{/empleador/registro}">Empleador</a></li>
+								            <li><hr class="dropdown-divider"></li>
+								            <li><a class="dropdown-item" th:href="@{/ciudadano/registro}">Ciudadano</a></li>
+							        	</ul>
+						        	</li>
+					    		</ul>
+							  	<a class="btn btn-outline-warning" aria-current="page" th:href="@{/login/ciudadano}">Login</a>
+							</div>
+				    	</div>
+			 		</div>
+				</nav>
 			</div> 
 		</header>
 		
