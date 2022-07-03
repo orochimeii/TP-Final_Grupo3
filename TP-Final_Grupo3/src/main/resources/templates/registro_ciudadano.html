@@ -10,6 +10,10 @@
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
 		<div class="container col-4">
+			<ul class="list-group list-group-horizontal justify-content-center">
+			  <li class="list-group-item"><a class="nav-link active" aria-current="page" th:href="@{/empleador/registro}">Registrarse como Empleador</a></li>
+			  <li class="list-group-item"><a class="nav-link active" aria-current="page" th:href="@{/ciudadano/registro}">Registrarse como Ciudadano</a></li>
+			</ul>
 			<br>
 			<p class="h4">Registrarse como ciudadano</p>
 			<br>
@@ -18,7 +22,7 @@
 			
 				<div class="mb-3">
 					<label for="dni" class="form-label">DNI</label> 
-					<input th:field="*{dni}" type="number" class="form-control" id="dni" placeholder="00-000000000-0">
+					<input th:field="*{dni}" type="number" class="form-control" id="dni" placeholder="000000000">
 				</div>
 				<div class="mb-3">
 					<label for="numeroDeTramite" class="form-label">Numero de tramite</label> 
@@ -30,14 +34,14 @@
 				</div>
 				<div class="mb-3">
 					<label for="estadoCivil" class="form-label">Estado civil</label> 
-					<input th:field="*{estadoCivil}" type="text" class="form-control" id="estadoCivil" placeholder="HotDoge">
+					<input th:field="*{estadoCivil}" type="text" class="form-control" id="estadoCivil" placeholder="Soltero">
 				</div>
 				<div class="mb-3">
 					<label for="privincia" class="form-label">Provincia</label> 
 					<input th:field="*{privincia}" type="text" class="form-control" id="privincia">
 				</div>
 				<div class="mb-3">
-					<label for="telefono" class="form-label">Telefono</label> 
+					<label for="telefono" class="form-label">Teléfono</label> 
 					<input th:field="*{telefono}" type="tel" class="form-control" id="telefono">
 				</div>
 				<div class="mb-3">
@@ -46,7 +50,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="contrasenia" class="form-label">Contraseña</label> 
-					<input th:field="*{contrasenia}" type="password" class="form-control" id="contrasenia">
+					<input th:field="*{contrasenia}" type="password" class="form-control" id="contrasenia" placeholder="********">
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>

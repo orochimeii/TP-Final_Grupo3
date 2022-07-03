@@ -12,7 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import ar.edu.unju.fi.service.imp.UsuarioDetailsServiceImp;
 
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -21,14 +20,18 @@ public class SecurityConfig {
 	private AutenticacionSuccessHandler autenticacion;
 
 	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/img/**", "/js/**", "/layer/**",
-			"/webjars/**" };
+			"/webjars/**", "/images/**" };
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/login/*").permitAll().antMatchers("/", "/inicio","/login/*").permitAll().antMatchers(resources).permitAll().anyRequest()
+		http.authorizeRequests().antMatchers("/login/*").permitAll().antMatchers("/", "/inicio","/login/*", "/empleador/registro", "/ciudadano/registro").permitAll().antMatchers(resources).permitAll().anyRequest()
 				.authenticated().and().formLogin().loginPage("/login").permitAll().successHandler(autenticacion)
 				.failureUrl("/login?error=true").usernameParameter("id").passwordParameter("password").and().logout()
+				.logoutUrl("/logout")
+				.invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID")
+				.logoutSuccessUrl("/login/ciudadano")
 				.permitAll();
 
 		http.headers().frameOptions().sameOrigin();
