@@ -10,7 +10,7 @@
 		<header th:replace="layouts/header::header"></header>
 	
 		<div class="container col-7">
-			<h1 class="text-dark text-center pt-3 mb-3">Cursos</h1>
+			<h1 class="text-dark text-center pt-3 mb-3">Cursos inscriptos</h1>
 			<h5 th:if="${vacio}" class="text-center">No está inscripto a ningún curso</h5>
 			<br>
 			<div class="row row-cols-1 row-cols-md-3 g-4">
@@ -35,7 +35,7 @@
 			</div>
 			<br>
 			<div class="container mb-5 ">
-				<a th:href="@{/inicio}" class="btn btn-outline-dark">Volver</a>
+				<a th:href="@{/ciudadano/perfil}" class="btn btn-outline-dark">Volver</a>
 			</div>
 			
 		</div>
