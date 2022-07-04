@@ -148,4 +148,12 @@ public class OfertaController {
 			return mav;
 		}
 	}
+	
+	@GetMapping("/misPostulaciones")
+	public String verMisPostulaciones(Model model, Authentication authentication) {
+		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
+		model.addAttribute("vacio", ciudadano.getOfertas().isEmpty());
+		model.addAttribute("postulaciones", ciudadano.getOfertas());
+		return "mis_postulaciones";
+	}
 }
