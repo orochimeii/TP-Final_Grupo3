@@ -50,13 +50,13 @@ public class CursoController {
 		}
 		
 		if(inscripto==false) {
-			ModelAndView modeloVista = new ModelAndView("redirect:/curso/listaCursos");
+			ModelAndView modeloVista = new ModelAndView("redirect:/curso/cursos");
 			Curso curso = cursoService.buscarCurso(id);
 			ciudadano.getCursos().add(curso);
 			cursoService.agregarCurso(curso);
 			return modeloVista;
 		}else {
-			ModelAndView modeloVista = new ModelAndView("redirect:/curso/listaCursos");
+			ModelAndView modeloVista = new ModelAndView("redirect:/curso/cursos");
 			return modeloVista;
 		}
 		
