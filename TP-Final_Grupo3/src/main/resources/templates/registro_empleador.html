@@ -63,9 +63,12 @@
 				</div>
 				<div class="mb-3">
 					<label for="domicilio" class="form-label">Domicilio</label> 
+
 					<input th:field="*{domicilio}" type="text" class="form-control" id="domicilio" required >
 										<div class="alert-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
-					
+
+					<input th:field="*{domicilio}" type="text" class="form-control" id="inicioDeActividad" placeholder="Domicilio">
+
 				</div>
 				<div class="mb-3">
 					<label for="provincia" class="form-label">Provincia</label> 
