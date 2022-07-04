@@ -19,43 +19,63 @@
 					</div>
 					<div class="mb-3">
 						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
-						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
+						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('cantidadDeVacantes')}" therrors="*{cantidadDeVacantes}"></div>
+					
 					</div>
 					<div class="mb-3">
 						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
-						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000">
+						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000" required>								<div class="alert-danger" thif="${#fields.hasErrors('domicilio')}" therrors="*{domicilio}"></div>
+					 	<div class="alert-danger" thif="${#fields.hasErrors('puestoRequerido')}" therrors="*{puestoRequerido}"></div>
+					 
 					</div>
 					<div class="mb-3">
 						<label for="resumenPuesto" class="form-label">Resumen</label> 
-						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="">
+						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('resumenPuesto')}" therrors="*{resumenPuesto}"></div>
+				
 					</div>
 					<div class="mb-3">
 						<label for="disponibilidad" class="form-label">Disponibilidad Horaria</label> 
-						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00">
+						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('disponibilidad')}" therrors="*{disponibilidad}"></div>
+					
 					</div>
 					<div class="mb-3">
 						<label for="datosContacto" class="form-label">Datos de Contacto</label> 
-						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto">
+						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('datosContacto')}" therrors="*{datosContacto}"></div>
+				
 					</div>
 					<div class="mb-3">
 						<label for="jornada" class="form-label">Jornada</label> 
-						<input th:field=*{jornada} type="text" class="form-control" id="jornada">
+						<input th:field=*{jornada} type="text" class="form-control" id="jornada" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('jornada')}" therrors="*{jornada}"></div>
+					
 					</div>
 					<div class="mb-3">
 						<label for="requisitos" class="form-label">Requisitos</label> 
-						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos">
+						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('requisitos')}" therrors="*{requisitos}"></div>
+			
 					</div>
 					<div class="mb-3">
 						<label for="salario" class="form-label">Salario</label> 
-						<input th:field=*{salario} type="number" class="form-control" id="salario">
+						<input th:field=*{salario} type="number" class="form-control" id="salario" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('salario')}" therrors="*{salario}"></div>
+					
 					</div>
 					<div class="mb-3">
 						<label for="beneficios" class="form-label">Beneficios</label> 
-						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios">
+						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('beneficios')}" therrors="*{beneficios}"></div>
+					
 					</div>
 					<div class="mb-3">
 						<label for="disponible" class="form-label">Disponible</label> 
-						<input th:field=*{disponible} type="text" class="form-control" id="disponible">
+						<input th:field=*{disponible} type="text" class="form-control" id="disponible" required>
+						<div class="alert-danger" thif="${#fields.hasErrors('disponible')}" therrors="*{disponible}"></div>
+				
 					</div>
 					<div class="mb-3" sec:authorize="!isAuthenticated()"> 
 						<input th:field='sec:authentication="name"' type="hidden" class="form-control" id="empleador">
