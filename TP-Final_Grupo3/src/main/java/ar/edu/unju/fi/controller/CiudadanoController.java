@@ -51,7 +51,8 @@ public class CiudadanoController {
 	@GetMapping("/oferta/:id")
 	public String getOfertaPage(Model model ) {
 		return null;
-
+	}
+	
 	@GetMapping("/ver")
 	public String ver(Model model, Authentication authentication) {
 		LOGGER.info(authentication.getName());

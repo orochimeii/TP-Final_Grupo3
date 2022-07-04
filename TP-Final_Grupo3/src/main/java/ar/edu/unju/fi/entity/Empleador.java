@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 //import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -32,7 +34,8 @@ public class Empleador {
 	private String nombreComercial;
 	
 	@Column(name = "INICIO_ACTIVIDAD")
-	private LocalDate inicioDeActividad;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate inicioDeActividad = LocalDate.now();
 	
 	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "EMAIL")
