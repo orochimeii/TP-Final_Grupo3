@@ -81,4 +81,10 @@ public class CiudadanoController {
 		ciudadanoService.registrar(ciudadano);
 		return modeloVista;
 	}
+	
+	@GetMapping("/perfil")
+	public String verPerfil(Model model, Authentication authentication) {
+		model.addAttribute("ciudadano", ciudadanoService.findByDni(authentication.getName()));
+		return "perfil_ciudadano";
+	}
 }

@@ -64,6 +64,13 @@ public class Ciudadano {
 	@JoinColumn(name="FK_CV")
 	private CV curriculumVitae;
 	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name="ciudadano_curso",
+				joinColumns = @JoinColumn(name = "ciudadano_id"),
+				inverseJoinColumns = @JoinColumn(name = "curso_id")
+			)
+	private List<Curso> cursos = new ArrayList<Curso>();
+	
 	public Ciudadano(Long dni, int numeroDeTramite, String email, String estadoCivil, String privincia, String telefono,
 			LocalDate fechaDeNacimiento, String contrasenia, List<Oferta> ofertas, CV curriculumVitae) {
 
@@ -142,6 +149,12 @@ public class Ciudadano {
 	}
 	public void setCv(CV curriculumVitae) {
 		this.curriculumVitae = curriculumVitae;
+	}
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 	
 }

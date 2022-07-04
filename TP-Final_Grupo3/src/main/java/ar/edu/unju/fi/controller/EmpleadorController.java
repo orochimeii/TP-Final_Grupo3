@@ -46,6 +46,7 @@ public class EmpleadorController {
 	public String registro(@Valid @ModelAttribute Empleador empleador, BindingResult result, Model model) {
 		//LOGGER.info(empleador.getEmail());
 		if(result.hasErrors()) {
+	
 			return "redirect:/empleador/registro";
 		}else {
 			empleadorService.registrar(empleador);
@@ -53,14 +54,17 @@ public class EmpleadorController {
 		return "redirect:/login/empleador";
 	}
 	
+	//Ver informacion del empleador loggeado
 	@GetMapping("/ver")
 	public String verEmpleador(Model model, Authentication authentication) {
 		LOGGER.info(authentication.getName());
+		LOGGER.info("Nos permite ver la informacion del empleador");
 		Empleador empleador = empleadorService.findByCuit(authentication.getName());
 		model.addAttribute("empleador", empleador);
 		return "ver_empleador";
 	}
 	
+	//Editar al empleador loggeado
 	@GetMapping("/editar")
 	public String editarEmpleador(Model model, Authentication authentication) {
 		LOGGER.info(authentication.getName());
@@ -69,16 +73,26 @@ public class EmpleadorController {
 		return "editar_empleador";
 	}
 	
+	//Valida y actualiza al empleador
 	@PostMapping("/editar")
 	public ModelAndView editar(@Validated @ModelAttribute("empleador") Empleador empleador, BindingResult bindingResult, Authentication authentication) {
 		if(bindingResult.hasErrors()) {
+			LOGGER.info("Fallo al editar");
 			ModelAndView modeloVista = new ModelAndView("editar_empleador");
 			modeloVista.addObject("empleador", empleador);
 			return modeloVista;
-		}
-		
+	}
+		LOGGER.info("Editar empleador");
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		empleadorService.registrar(empleador);
 		return modeloVista;
+	}
+	
+	//Ver el perfil del empleador logeado
+	@GetMapping("/perfil")
+	public String verPerfil(Model model, Authentication authentication) {
+		LOGGER.info("Ver perfil de: "+authentication.getName());
+		model.addAttribute("empleador", empleadorService.findByCuit(authentication.getName()));
+		return "perfil_empleador";
 	}
 }

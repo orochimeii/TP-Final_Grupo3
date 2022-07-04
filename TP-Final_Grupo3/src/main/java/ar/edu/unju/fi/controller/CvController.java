@@ -32,6 +32,9 @@ public class CvController {
 	@Autowired
 	ICiudadanoService ciudadanoService;
 	
+	/*
+	 * Estamos creando un CV para un ciudadano, si ya tiene CV directamente nos manda a verlo
+	 * */
 	@GetMapping("/crear")
 	public String getFormularioPage(Model model, Authentication authentication) {
 		
@@ -47,9 +50,13 @@ public class CvController {
 		
 	}
 	
+	/*
+	 * Valida que el CV este correctamente y lo guarda
+	 * */
 	@PostMapping("/crear")
 	public ModelAndView cargarCurriculo(@Validated @ModelAttribute("cvAlias") CV cv, BindingResult bindingResult, Authentication authentication) {
 		if(bindingResult.hasErrors()) {
+			LOGGER.info("CV con datos incorrectos");
 			ModelAndView modeloVista = new ModelAndView("crear_cv");
 			modeloVista.addObject("cvAlias", cv);
 			return modeloVista;
@@ -61,12 +68,15 @@ public class CvController {
 		ciudadano.setCv(cv);
 		cv.setCiudadano(ciudadano);
 			
-		ciudadanoService.registrar(ciudadano);
+		cvService.guardarCV(cv);
 		
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		return modeloVista;
 	}
 	
+	/*
+	 * Nos permite editar el CV del usuario loggeado y en caso de no haber creado el cv lo redirige hacia ahi
+	 * */
 	@GetMapping("/editar")
 	public String editarCV(Model model, Authentication authentication) {
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
@@ -81,9 +91,13 @@ public class CvController {
 		
 	}
 	
+	/*
+	 * Nos permite verificar y actualizar el CV del usuario loggeado 
+	 * */
 	@PostMapping("/editar")
 	public ModelAndView editar(@Validated @ModelAttribute("cvAlias") CV cv, BindingResult bindingResult, Authentication authentication) {
 		if(bindingResult.hasErrors()) {
+			LOGGER.info("CV con datos incorrectos");
 			ModelAndView modeloVista = new ModelAndView("editar_cv");
 			modeloVista.addObject("cvAlias", cv);
 			return modeloVista;
@@ -96,11 +110,19 @@ public class CvController {
 		return modeloVista;
 	}
 	
+	/*
+	 * Nos permite ver el CV del usuario loggeado
+	 * */
 	@GetMapping("/ver")
 	public String verCV(Model model, Authentication authentication) {
 		LOGGER.info("Ver CV - "+authentication.getName());
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
-		model.addAttribute("cvAlias", ciudadano.getCv());
-		return "ver_cv";
+		if(ciudadano.getCv()==null) {
+			LOGGER.info("No tiene un CV");
+			return "redirect:/cv/crear";
+		}else {
+			model.addAttribute("cvAlias", ciudadano.getCv());
+			return "ver_cv";
+		}
 	}
 }

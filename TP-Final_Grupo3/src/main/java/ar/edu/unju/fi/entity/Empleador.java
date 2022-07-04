@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 //import javax.validation.constraints.NotEmpty;
@@ -19,11 +20,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Empleador {
 	@Id
 	//@NotEmpty(message="Este campo no puede ser vacío")
+	
 	@Column(name = "CUIT")
 	private Long cuit;
 	
 	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
+	@Size(min=8, message="La contraseña debe contener 8 caracteres min.")
 	private String contrasenia;
 	
 	@Column(name = "RAZON_SOCIAL")
@@ -41,6 +44,7 @@ public class Empleador {
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@Size(min=10, message="numero de telefono invalido")
 	@Column(name = "TELEFONO")
 	private String telefono;
 	

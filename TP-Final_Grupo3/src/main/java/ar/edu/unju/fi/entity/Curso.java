@@ -1,12 +1,15 @@
 package ar.edu.unju.fi.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +41,9 @@ public class Curso {
 	
 	@Column(name = "DOCENTE")
 	private String docente;
+	
+	@ManyToMany(mappedBy = "cursos")
+	private List<Ciudadano> ciudadanos = new ArrayList<Ciudadano>();
 	
 	public Curso() {
 		// TODO Auto-generated constructor stub
@@ -97,6 +103,14 @@ public class Curso {
 
 	public void setDocente(String docente) {
 		this.docente = docente;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Curso(String titulo, String categoria, LocalDate fechaInicio, LocalDate fechaFin, int cantidadHoras,
