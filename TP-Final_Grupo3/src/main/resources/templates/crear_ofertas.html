@@ -27,7 +27,6 @@
 						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
 						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000" required>								<div class="alert-danger" thif="${#fields.hasErrors('domicilio')}" therrors="*{domicilio}"></div>
 					 	<div class="alert-danger" th:if="${#fields.hasErrors('puestoRequerido')}" th:errors="*{puestoRequerido}"></div>
-					 
 					</div>
 					<div class="mb-3">
 						<label for="resumenPuesto" class="form-label">Resumen</label> 
@@ -63,7 +62,6 @@
 						<label for="salario" class="form-label">Salario</label> 
 						<input th:field=*{salario} type="number" class="form-control" id="salario" required>
 						<div class="alert-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>
-					
 					</div>
 					<div class="mb-3">
 						<label for="beneficios" class="form-label">Beneficios</label> 

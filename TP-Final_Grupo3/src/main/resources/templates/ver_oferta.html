@@ -9,62 +9,31 @@
 	
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
-		<div class="formulario">
-			<form th:object="${oferta}">
-				<input type="hidden" th:field="*{id}">
-		        <div class="card">
-					<div class="card-header">
-						 <h4>Oferta Laboral</h4>
-					</div>
-					<div class="mb-3">
-						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
-						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
-						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="resumenPuesto" class="form-label">Resumen</label> 
-						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="disponibilidad" class="form-label">Disponibilidad Horaria</label> 
-						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="datosContacto" class="form-label">Datos de Contacto</label> 
-						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="jornada" class="form-label">Jornada</label> 
-						<input th:field=*{jornada} type="text" class="form-control" id="jornada" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="requisitos" class="form-label">Requisitos</label> 
-						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="salario" class="form-label">Salario</label> 
-						<input th:field=*{salario} type="number" class="form-control" id="salario" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="beneficios" class="form-label">Beneficios</label> 
-						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios" disabled>
-					</div>
-					<div class="mb-3">
-						<label for="disponible" class="form-label">Disponible</label> 
-						<input th:field=*{disponible} type="text" class="form-control" id="disponible" disabled>
-					</div>
-					<div class="mb-3" sec:authorize="!isAuthenticated()"> 
-						<input th:field='sec:authentication="name"' type="hidden" class="form-control" id="empleador">
-					</div>
-					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-						<a th:href="@{/ciudadano/perfil}" id="cancel" class="btn btn-danger">Salir</a>
-		  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
-					</div>
-				</div>
-			</form>
+		<div class="card mb-3">
+			<div class="card-body" th:object="${oferta}">
+				<h5 class="card-title" th:text="${oferta.puestoRequerido}"></h5>
+		        <p class="card-text" th:text=${oferta.cantidadDeVacantes}> Vacantes disponibles</p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.resumenPuesto}></p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.requisitos}></p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.jornada}></p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.disponibilidad}></p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.salario}></p>
+		        <br>
+		        <p class="card-text" th:text=${oferta.beneficios}></p>
+		        <br>
+			</div>
+			<div sec:authorize="hasAuthority('EMPLEADOR')">
+				<a th:href="@{${'/oferta/editar/'+oferta.id}}" class="btn btn-sm btn-outline-warning">Editar</a>
+	      		<a th:href="@{${'/oferta/eliminar/'+oferta.id}}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+			</div>
+			<div sec:authorize="hasAuthority('CIUDADANO')">
+				<a th:href="@{${'/oferta/postular/'+oferta.id}}" class="btn btn-sm btn-outline-primary">Postular</a>
+			</div>
 		</div>
 		<footer th:replace="/layouts/footer :: footer"></footer>
 		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>

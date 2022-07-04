@@ -28,17 +28,16 @@
 							<th>Opciones</th>
 						</tr>	
 						<tr th:each="oferta: ${ofertas}">
-							<td th:text="${oferta.puestoRequerido}"></td>
+							<td ><a class="active" th:href="@{${'/oferta/'+oferta.id}}" th:text="${oferta.puestoRequerido}"></a></td>
 							<td th:text="${oferta.jornada}"></td>
 							<td th:text="${oferta.requisitos}"></td>
 							<td th:text="'$'+${oferta.salario}"></td>
 							<td sec:authorize="hasAuthority('EMPLEADOR')">
-								<a th:href="@{/}" class="btn btn-sm btn-outline-warning">Editar</a>
-					      		<a th:href="@{/}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+								<a th:href="@{${'/oferta/editar/'+oferta.id}}" class="btn btn-sm btn-outline-warning">Editar</a>
+					      		<a th:href="@{${'/oferta/eliminar/'+oferta.id}}" class="btn btn-sm btn-outline-danger">Eliminar</a>
 							</td>
 							<td sec:authorize="hasAuthority('CIUDADANO')">
-								<a th:href="@{/}" class="btn btn-sm btn-outline-primary">Inscribirse</a>
-					      		<a th:href="@{/}" class="btn btn-sm btn-outline-primary">Ver</a>
+								<a th:href="@{${'/oferta/postular/'+oferta.id}}" class="btn btn-sm btn-outline-primary">Postular</a>
 							</td>
 						</tr>
 					</table>

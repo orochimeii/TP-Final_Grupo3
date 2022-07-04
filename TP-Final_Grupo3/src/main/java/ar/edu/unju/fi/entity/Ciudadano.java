@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -53,7 +54,7 @@ public class Ciudadano {
 	@Column(name = "CONTRASENIA")
 	private String contrasenia;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "ciudadano_oferta", 
 				joinColumns = {@JoinColumn(name = "ciudadano_Id")}, 
 				inverseJoinColumns = {@JoinColumn(name = "oferta_id")})
@@ -83,6 +84,12 @@ public class Ciudadano {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 		this.contrasenia = contrasenia;
 		this.curriculumVitae = curriculumVitae;
+	}
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
 	}
 	public Ciudadano() {
 		super();
