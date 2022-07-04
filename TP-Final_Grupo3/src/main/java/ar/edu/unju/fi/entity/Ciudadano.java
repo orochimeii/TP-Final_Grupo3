@@ -22,7 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "ciudadanos")
 public class Ciudadano {
 	@Id
-	@NotNull(message="Este campo no puede ser vacío")
+	
 //	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DNI", nullable = false)
 	private Long dni;
@@ -48,7 +48,7 @@ public class Ciudadano {
 	//@NotEmpty(message="Este campo no puede ser vacío")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_NACIMIENTO")
-	private LocalDate fechaDeNacimiento;
+	private LocalDate fechaDeNacimiento ;
 	
 	@NotNull(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
