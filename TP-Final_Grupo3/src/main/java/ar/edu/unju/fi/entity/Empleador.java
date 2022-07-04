@@ -26,7 +26,7 @@ public class Empleador {
 	
 	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
-	@Size(min=8, message="muy corta la contraseña")
+	@Size(min=8, message="La contraseña debe contener 8 caracteres min.")
 	private String contrasenia;
 	
 	@Column(name = "RAZON_SOCIAL")
