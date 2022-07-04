@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,13 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name = "ofertas")
@@ -71,9 +68,20 @@ public class Oferta {
 	@JoinColumn(name = "EMPLEADOR_ID")
 	Empleador empleador;
 	
+	@ManyToMany(mappedBy = "ofertas", fetch = FetchType.EAGER)
+	private List<Ciudadano> ciudadanos = new ArrayList<Ciudadano>(); 
+	
+	public List<Ciudadano> getCiudadanos() {
+		return ciudadanos;
+	}
+
+	public void setCiudadanos(List<Ciudadano> ciudadanos) {
+		this.ciudadanos = ciudadanos;
+	}
+
 	public Oferta(int cantidadDeVacantes, String puestoRequerido, String resumenPuesto, String disponibilidad,
 			ArrayList<String> tareasPrincipales, ArrayList<String> datosContacto, String jornada, String requisitos,
-			double salario, String beneficios, boolean disponible, Empleador empleador) {
+			double salario, String beneficios, boolean disponible, Empleador empleador, List<Ciudadano> ciudadanos) {
 		super();
 		this.cantidadDeVacantes = cantidadDeVacantes;
 		this.puestoRequerido = puestoRequerido;

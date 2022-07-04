@@ -19,10 +19,10 @@
 					</div>
 					<div class="mb-3">
 						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
-						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
+						<input th:field=*{cantidadDeVacantes} type="number" min="1" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
 					</div>
 					<div class="mb-3">
-						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
+						<label for="puestoRequerido" class="form-label">Puesto Requerido</label> 
 						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000">
 					</div>
 					<div class="mb-3">
@@ -47,7 +47,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="salario" class="form-label">Salario</label> 
-						<input th:field=*{salario} type="number" class="form-control" id="salario">
+						<input th:field=*{salario} type="number" min="0" class="form-control" id="salario">
 					</div>
 					<div class="mb-3">
 						<label for="beneficios" class="form-label">Beneficios</label> 
