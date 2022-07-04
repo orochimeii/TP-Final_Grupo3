@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,8 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "empleadores")
 public class Empleador {
 	@Id
-	
-	
+	@NotNull
 	@Column(name = "CUIT")
 	private Long cuit;
 	
