@@ -46,6 +46,7 @@ public class EmpleadorController {
 	public String registro(@Valid @ModelAttribute Empleador empleador, BindingResult result, Model model) {
 		//LOGGER.info(empleador.getEmail());
 		if(result.hasErrors()) {
+	
 			return "redirect:/empleador/registro";
 		}else {
 			empleadorService.registrar(empleador);
@@ -75,7 +76,7 @@ public class EmpleadorController {
 			ModelAndView modeloVista = new ModelAndView("editar_empleador");
 			modeloVista.addObject("empleador", empleador);
 			return modeloVista;
-		}
+	}
 		
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		empleadorService.registrar(empleador);
