@@ -23,35 +23,43 @@
 			
 				<div class="mb-3">
 					<label for="dni" class="form-label">DNI</label> 
-					<input th:field="*{dni}" type="number" class="form-control" id="dni" placeholder="000000000" required>
+					<input th:field="*{dni}" type="number" class="form-control" id="dni" placeholder="000000000">
+					<div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="numeroDeTramite" class="form-label">Numero de tramite</label> 
-					<input th:field="*{numeroDeTramite}" type="number" class="form-control" id="numeroDeTramite" required>
+					<input th:field="*{numeroDeTramite}" type="number" class="form-control" id="numeroDeTramite">
+					<div class="alert-danger" th:if="${#fields.hasErrors('numeroDeTramite')}" th:errors="*{numeroDeTramite}"></div>			
 				</div>
 				<div class="mb-3">
 					<label for="email" class="form-label">Email</label> 
-					<input th:field="*{email}"  type="email" class="form-control" id="razonSocial" placeholder="suemail@mail.com" required>
+					<input th:field="*{email}"  type="email" class="form-control" id="razonSocial" placeholder="suemail@mail.com">
+					<div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>	
 				</div>
 				<div class="mb-3">
 					<label for="estadoCivil" class="form-label">Estado civil</label> 
-					<input th:field="*{estadoCivil}" type="text" class="form-control" id="estadoCivil" placeholder="Soltero" required>
+					<input th:field="*{estadoCivil}" type="text" class="form-control" id="estadoCivil" placeholder="Soltero">
+					<div class="alert-danger" th:if="${#fields.hasErrors('estadoCivil')}" th:errors="*{estadoCivil}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="privincia" class="form-label">Provincia</label> 
-					<input th:field="*{privincia}" type="text" class="form-control" id="privincia" required>
+					<input th:field="*{privincia}" type="text" class="form-control" id="privincia">
+					<div class="alert-danger" th:if="${#fields.hasErrors('privincia')}" th:errors="*{privincia}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="telefono" class="form-label">Teléfono</label> 
-					<input th:field="*{telefono}" type="tel" class="form-control" id="telefono" required>
+					<input th:field="*{telefono}" type="tel" class="form-control" id="telefono">
+					<div class="alert-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="fechaDeNacimiento" class="form-label">Fecha de nacimiento</label> 
 					<input th:field="*{fechaDeNacimiento}" type="date" class="form-control" id="fechaDeNacimiento">
+					<div class="alert-danger" th:if="${#fields.hasErrors('fechaDeNacimiento')}" th:errors="*{fechaDeNacimiento}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="contrasenia" class="form-label">Contraseña</label> 
-					<input th:field="*{contrasenia}" type="password" class="form-control" id="contrasenia" placeholder="********" required>
+					<input th:field="*{contrasenia}" type="password" class="form-control" id="contrasenia" placeholder="********" >
+					<div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>

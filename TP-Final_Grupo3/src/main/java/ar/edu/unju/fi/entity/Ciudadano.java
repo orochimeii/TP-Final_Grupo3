@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,35 +23,36 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "ciudadanos")
 public class Ciudadano {
 	@Id
-	
-//	@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull
 	@Column(name = "DNI", nullable = false)
 	private Long dni;
 	
+	@NotNull
 	@Column(name = "TRAMITE_NUMERO")
 	private int numeroDeTramite;
 	
-	@NotNull(message="Este campo no puede ser vacío")
+	@NotEmpty
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@NotEmpty
 	@Column(name = "ESTADO_CIVIL")
 	private String estadoCivil;
 	
-	@NotNull(message="Este campo no puede ser vacío")
+	@NotEmpty
 	@Column(name = "PROVINCIA")
 	private String privincia;
 	
-	@NotNull(message="Este campo no puede ser vacío")
+	@NotEmpty
 	@Column(name = "TELEFONO")
 	private String telefono;
 	
-	//@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_NACIMIENTO")
 	private LocalDate fechaDeNacimiento ;
 	
-	@NotNull(message="Este campo no puede ser vacío")
+	@NotEmpty
 	@Column(name = "CONTRASENIA")
 	private String contrasenia;
 	

@@ -40,7 +40,8 @@ public class CiudadanoController {
 	public String registro(@Valid @ModelAttribute Ciudadano ciudadano, BindingResult result, Model model) {
 		if(result.hasErrors() || ciudadano.getFechaDeNacimiento().until(LocalDate.now()).getYears() < 18) {
 			LOGGER.info("Todos los campos son requeridos");
-			return "redirect:/ciudadano/registro";
+			model.addAttribute("ciudadano", ciudadano);
+			return "registro_ciudadano";
 		}else {				
 			ciudadanoService.registrar(ciudadano);
 			LOGGER.info("Ciudadano registrado");
