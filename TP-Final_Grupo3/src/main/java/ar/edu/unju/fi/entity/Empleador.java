@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -34,7 +33,7 @@ public class Empleador {
 	@Column(name = "RAZON_SOCIAL")
 	private String razonSocial;
 	
-	//@NotEmpty(message="Este campo no puede ser vacío")
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "NOMBRE_COMERCIAL")
 	private String nombreComercial;
 	
