@@ -13,39 +13,43 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "ciudadanos")
 public class Ciudadano {
 	@Id
-	//@NotEmpty(message="Este campo no puede ser vacío")
-	@Column(name = "DNI")
+	@NotNull(message="Este campo no puede ser vacío")
+//	@NotEmpty(message="Este campo no puede ser vacío")
+	@Column(name = "DNI", nullable = false)
 	private Long dni;
 	
 	@Column(name = "TRAMITE_NUMERO")
 	private int numeroDeTramite;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull(message="Este campo no puede ser vacío")
 	@Column(name = "EMAIL")
 	private String email;
 	
 	@Column(name = "ESTADO_CIVIL")
 	private String estadoCivil;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull(message="Este campo no puede ser vacío")
 	@Column(name = "PROVINCIA")
 	private String privincia;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull(message="Este campo no puede ser vacío")
 	@Column(name = "TELEFONO")
 	private String telefono;
 	
 	//@NotEmpty(message="Este campo no puede ser vacío")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_NACIMIENTO")
 	private LocalDate fechaDeNacimiento;
 	
-	@NotEmpty(message="Este campo no puede ser vacío")
+	@NotNull(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
 	private String contrasenia;
 	

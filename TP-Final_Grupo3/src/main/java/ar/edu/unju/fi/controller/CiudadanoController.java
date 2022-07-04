@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import java.time.LocalDate;
+
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
@@ -33,12 +35,18 @@ public class CiudadanoController {
 	
 	@PostMapping("/registro")
 	public String registro(@Valid @ModelAttribute Ciudadano ciudadano, BindingResult result, Model model) {
-		LOGGER.info(ciudadano.getDni());
-		if(result.hasErrors()) {
+		if(result.hasErrors() || ciudadano.getFechaDeNacimiento().until(LocalDate.now()).getYears() < 18) {
+			LOGGER.info("Todos los campos son requeridos");
 			return "redirect:/ciudadano/registro";
-		}else {
+		}else {				
 			ciudadanoService.registrar(ciudadano);
+			LOGGER.info("Ciudadano registrado");
 		}
 		return "redirect:/login/ciudadano";
+	}
+	
+	@GetMapping("/oferta/:id")
+	public String getOfertaPage(Model model ) {
+		return null;
 	}
 }
