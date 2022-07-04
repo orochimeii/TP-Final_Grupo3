@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ver</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</head>
+	
+	<body>
+		<header th:replace="/layouts/header :: header"></header>
+		<div class="container col-7">
+			<br>
+			<h4 class="text-center">Ver ciudadano</h4>
+			<br>
+			<form th:object="${ciudadano}">
+				<div class="mb-3">
+					<label for="dni" class="form-label">DNI</label> 
+					<input th:field="*{dni}" type="number" class="form-control" id="dni" placeholder="000000000" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="numeroDeTramite" class="form-label">Numero de tramite</label> 
+					<input th:field="*{numeroDeTramite}" type="number" class="form-control" id="numeroDeTramite" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label> 
+					<input th:field="*{email}"  type="email" class="form-control" id="razonSocial" placeholder="suemail@mail.com" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="estadoCivil" class="form-label">Estado civil</label> 
+					<input th:field="*{estadoCivil}" type="text" class="form-control" id="estadoCivil" placeholder="Soltero" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="privincia" class="form-label">Provincia</label> 
+					<input th:field="*{privincia}" type="text" class="form-control" id="privincia" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="telefono" class="form-label">Teléfono</label> 
+					<input th:field="*{telefono}" type="tel" class="form-control" id="telefono" disabled>
+				</div>
+				<div class="mb-3">
+					<label for="fechaDeNacimiento" class="form-label">Fecha de nacimiento</label> 
+					<input th:field="*{fechaDeNacimiento}" type="date" class="form-control" id="fechaDeNacimiento" disabled>
+				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<a th:href="@{/ciudadano/editar}" class="btn btn-outline-warning">Editar</a>
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-outline-secondary">Cancelar</a>
+	  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
+				</div>
+			</form>
+		</div>
+		<br>
+		<footer th:replace="/layouts/footer :: footer"></footer>
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+	
+	
+	</body>
+</html>
