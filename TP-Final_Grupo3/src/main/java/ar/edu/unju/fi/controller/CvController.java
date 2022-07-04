@@ -61,7 +61,7 @@ public class CvController {
 		ciudadano.setCv(cv);
 		cv.setCiudadano(ciudadano);
 			
-		ciudadanoService.registrar(ciudadano);
+		cvService.guardarCV(cv);
 		
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		return modeloVista;
@@ -100,7 +100,12 @@ public class CvController {
 	public String verCV(Model model, Authentication authentication) {
 		LOGGER.info("Ver CV - "+authentication.getName());
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
-		model.addAttribute("cvAlias", ciudadano.getCv());
-		return "ver_cv";
+		if(ciudadano.getCv()==null) {
+			LOGGER.info("No tiene un CV");
+			return "redirect:/cv/crear";
+		}else {
+			model.addAttribute("cvAlias", ciudadano.getCv());
+			return "ver_cv";
+		}
 	}
 }

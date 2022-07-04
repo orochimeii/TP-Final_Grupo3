@@ -11,8 +11,8 @@
 	
 		<div class="container col-7">
 			<h1 class="text-dark text-center pt-3 mb-3">Cursos</h1>
+			<h5 th:if="${vacio}" class="text-center">No está inscripto a ningún curso</h5>
 			<br>
-			
 			<div class="row row-cols-1 row-cols-md-3 g-4">
 				<div th:each="curso : ${cursosAlias}">
 					<div class="col">
@@ -29,9 +29,6 @@
 									<p class="card-text"><small class="text-muted" th:text="*{curso.categoria}"></small></p>
 								</li>
 							</ul>				    
-						    <div class="card-footer mx-auto">
-						     	<a th:href="@{/curso/inscribirse/}+*{curso.id}" class="btn btn-outline-primary btn-sm">Inscribirme</a>
-						    </div>
 					    </div>
 					 </div>
 				</div>
