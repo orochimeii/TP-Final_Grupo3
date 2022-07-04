@@ -27,9 +27,11 @@ public class Empleador {
 	
 	//@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "CONTRASENIA")
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Size(min=8, message="La contraseña debe contener 8 caracteres min.")
 	private String contrasenia;
 	
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "RAZON_SOCIAL")
 	private String razonSocial;
 	
@@ -41,24 +43,28 @@ public class Empleador {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate inicioDeActividad = LocalDate.now();
 	
-	//@NotEmpty(message="Este campo no puede ser vacío")
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Size(min=10, message="numero de telefono invalido")
 	@Column(name = "TELEFONO")
 	private String telefono;
 	
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DOMICILO")
 	private String domicilio;
 	
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "PROVINCIA")
 	private String provincia;
 	
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "PAGINA_WEB")
 	private String paginaWeb;
 	
-	//@NotEmpty(message="Este campo no puede ser vacío")
+	@NotEmpty(message="Este campo no puede ser vacío")
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
 	

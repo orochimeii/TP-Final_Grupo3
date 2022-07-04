@@ -23,23 +23,23 @@
 			
 				<div class="mb-3">
 					<label for="cuit" class="form-label">CUIT</label> 
-					<input th:field="*{cuit}" type="number" class="form-control" id="cuit" placeholder="00-00000000-0" required>
+					<input th:field="*{cuit}" type="number" class="form-control" id="cuit" placeholder="00-00000000-0">
 					<div class="alert-danger" th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="contrasenia" class="form-label">Contraseña</label> 
-					<input th:field="*{contrasenia}" type="password" class="form-control" id="password" placeholder="********" required >
+					<input th:field="*{contrasenia}" type="password" class="form-control" id="password" placeholder="********">
 					<div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>
 				
 				</div>
 				<div class="mb-3">
 					<label for="razonSocial" class="form-label">Razon social</label> 
-					<input th:field="*{razonSocial}"  type="text" class="form-control" id="razonSocial" placeholder="Salchichas S.A." required >
+					<input th:field="*{razonSocial}"  type="text" class="form-control" id="razonSocial" placeholder="Salchichas S.A.">
 			        <div class="alert-danger" th:if="${#fields.hasErrors('razonSocial')}" th:errors="*{razonSocial}"></div>
 				</div>
 				<div class="mb-3">
 					<label for="nombreComercial" class="form-label">Nombre comercial</label> 
-					<input th:field="*{nombreComercial}" type="text" class="form-control" id="nombreComercial" placeholder="HotDoge" required >
+					<input th:field="*{nombreComercial}" type="text" class="form-control" id="nombreComercial" placeholder="HotDoge">
 					<div class="alert-danger" th:if="${#fields.hasErrors('nombreComercial')}" th:errors="*{nombreComercial}"></div>
 			
 				</div>
@@ -51,40 +51,38 @@
 				</div>
 				<div class="mb-3">
 					<label for="email" class="form-label">Email</label> 
-					<input th:field="*{email}" type="email" class="form-control" id="email" placeholder="info@hotdoge.com" required >
+					<input th:field="*{email}" type="email" class="form-control" id="email" placeholder="info@hotdoge.com">
 									<div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 				
 				</div>
 				<div class="mb-3">
 					<label for="telefono" class="form-label">Telefono</label> 
-					<input th:field="*{telefono}" type="number" class="form-control" id="telefono" required >
+					<input th:field="*{telefono}" type="number" class="form-control" id="telefono">
 										<div class="alert-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 					
 				</div>
 				<div class="mb-3">
 					<label for="domicilio" class="form-label">Domicilio</label> 
-
-					<input th:field="*{domicilio}" type="text" class="form-control" id="domicilio" required >
-										<div class="alert-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
-
-					<input th:field="*{domicilio}" type="text" class="form-control" id="inicioDeActividad" placeholder="Domicilio">
+					<input th:field="*{domicilio}" type="text" class="form-control" id="domicilio" >
+				    <div class="alert-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+										
 
 				</div>
 				<div class="mb-3">
 					<label for="provincia" class="form-label">Provincia</label> 
-					<input th:field="*{provincia}" type="text" class="form-control" id="provincia" required >
+					<input th:field="*{provincia}" type="text" class="form-control" id="provincia">
 				<div class="alert-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
 				
 				</div>
 				<div class="mb-3">
 					<label for="paginaWeb" class="form-label">Pagina web</label> 
-					<input th:field="*{paginaWeb}" type="text" class="form-control" id="paginaWeb" placeholder="Hotdoge.com.ar" required >
+					<input th:field="*{paginaWeb}" type="text" class="form-control" id="paginaWeb" placeholder="Hotdoge.com.ar">
 				<div class="alert-danger" th:if="${#fields.hasErrors('paginaWeb')}" th:errors="*{paginaWeb}"></div>
 				
 				</div>
 				<div class="mb-3">
 					<label for="descripcion" class="form-label">Descripcion</label> 
-					<textarea th:field="*{descripcion}" class="form-control" id="descripcion" required ></textarea>
+					<textarea th:field="*{descripcion}" class="form-control" id="descripcion"></textarea>
 				<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
 				
 				</div>
