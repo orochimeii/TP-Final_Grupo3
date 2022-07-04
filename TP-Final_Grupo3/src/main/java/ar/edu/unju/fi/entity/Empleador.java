@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "empleadores")
 public class Empleador {
 	@Id
-	//@NotEmpty(message="Este campo no puede ser vacío")
+	
 	
 	@Column(name = "CUIT")
 	private Long cuit;
