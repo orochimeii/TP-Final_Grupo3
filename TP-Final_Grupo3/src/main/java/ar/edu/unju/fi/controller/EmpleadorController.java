@@ -82,4 +82,10 @@ public class EmpleadorController {
 		empleadorService.registrar(empleador);
 		return modeloVista;
 	}
+	
+	@GetMapping("/perfil")
+	public String verPerfil(Model model, Authentication authentication) {
+		model.addAttribute("empleador", empleadorService.findByCuit(authentication.getName()));
+		return "perfil_empleador";
+	}
 }

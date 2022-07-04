@@ -15,24 +15,18 @@
 			<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
 				<div class="carousel-inner">
 				    <div class="carousel-item active">
-				    	<img th:src="@{/images/empresa1.jpg}" class="d-block w-100">
+				    	<img th:src="@{/images/inicio.png}" class="d-block w-100">
 				      	<div class="carousel-caption d-none d-md-block">
+				      		<p class="text-light">Apreta aca abajo para crear tu cuenta</p>
 				       		<a class="btn btn-outline-light" th:href="@{/empleador/registro}">Crear cuenta</a>
 				      	</div>
 				    </div>
 				    <div class="carousel-item">
-				      	<img th:src="@{/images/empresa2.jpg}" class="d-block w-100" alt="...">
+				      	<img th:src="@{/images/inicio2.png}" class="d-block w-100">
 				      	<div class="carousel-caption d-none d-md-block">
+				      		<p class="text-light">Apreta aca abajo para iniciar sesión</p>
 				        	<a class="btn btn-outline-light" th:href="@{/login/empleador}">Iniciar sesión</a>
 				      	</div>
-				    </div>
-				    <div class="carousel-item">
-				      	<img th:src="@{/images/empresa3.jpg}" class="d-block w-100" alt="...">
-				      	<!-- 
-				      	<div class="carousel-caption d-none d-md-block">
-				        	<a class="btn btn-outline-light">Comenzar</a>
-				      	</div>
-				      	 -->
 				    </div>
 			  </div>
 			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -46,14 +40,58 @@
 			</div>
 		</div>
 		<br>
-		<div class="alert alert-secondary container" role="alert">
-		  <h4 class="alert-heading">¡Bienvenido!</h4>
-		  <p>Queremos compartir y dar esta oportunidad con vos, podes encontrar tu trabajo ideal o bien dar la posibilidad a alguien de obtener el trabajo de sus sueños.</p>
-		  <hr>
-		  <p class="mb-0">El placer de tenerte con nosotros es gigante.</p>
+		<div class="container pt-5">
+			<h1 class="text-center">¡Bienvenido!</h1>
+			<h4 class="text-center pt-5 mb-5">Queremos compartir y dar esta oportunidad con vos, podes encontrar tu trabajo ideal o bien dar la posibilidad a alguien de obtener el trabajo de sus sueños.</h4>
+			<br>
+			<div class="card mb-5" style="max-width: 1368px;">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img th:src="@{/images/empresa3.jpg}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">¡Postulate en varios puestos!</h5>
+							<p class="card-text">Tenes la posibilidad de postularte en distintos puestos de trabajo para así aumentar la chance de ser contratado en alguna.</p>
+							<p class="card-text"><small class="text-muted">Group III</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card mb-5" style="max-width: 1368px;">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img th:src="@{/images/empresa1.jpg}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">¡Busca tus empleados!</h5>
+							<p class="card-text">Ahora con nuestrá página para vos va a ser más facil encontrar a un empleado con las cualidades que buscas.</p>
+							<p class="card-text"><small class="text-muted">Group III</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card mb-5" style="max-width: 1368px;">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img th:src="@{/images/empresa2.jpg}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">¡Todo más sencillo!</h5>
+							<p class="card-text">Nuestra página facilita el trabajo de encontrar y ofrecer un empleo, solo tenes que registrarte y empezar.</p>
+							<p class="card-text"><small class="text-muted">Group III</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+		
 		<br>
-		<div class="accordion container" id="accordionExample">
+		<div class="accordion container pt-5" id="accordionExample">
 			<h3 class="text-center">Preguntas Frecuentes</h3>
 			<br>
 		  <div class="accordion-item">
