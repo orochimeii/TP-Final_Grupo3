@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+			<title>CV</title>
+			<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+			<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+		</head>
+	<body>
+		<header th:replace="layouts/header::header"></header>
+	
+		<div class="container col-6">
+			<h1 class="text-dark text-center pt-3 mb-3">Crear CV</h1>
+			<form th:action="@{/cv/crear}" method="post" th:object="${cvAlias}">
+			<div class="card border-primary">
+				<div class="card-header border-primary">
+					<h4 class="text-center">Información Personal</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col">
+							<input type="text" class="form-control" placeholder="Nombre" th:field="*{nombre}">
+							<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+						</div>
+							<div class="col">
+								<input type="text" class="form-control" placeholder="Apellido" th:field="*{apellido}">
+								<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+							</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col">
+							<label class="form-label">Fecha de Nacimiento</label> 
+							<input type="date" class="form-control" placeholder="Fecha de Nacimiento" th:field="*{fechaNacimiento}">
+							<div class="text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+						</div>
+						<div class="col">
+							<label class="form-label">DNI</label> 
+							<input type="number" class="form-control" placeholder="DNI" th:field="*{dni}">
+							<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col">
+							<div >
+								<label class="form-label">País de residencia</label>
+								<select class="form-select" aria-label="Nacionalidad" th:field=*{nacionalidad}>
+									<option value="Argentina" >Argentina</option>
+									<option value="Brasil">Brasil</option>
+									<option value="Bolivia">Bolivia</option>
+									<option value="Chile">Chile</option>
+									<option value="Colombia">Colombia</option>
+									<option value="Ecuador">Ecuador</option>
+									<option value="Paraguay">Paraguay</option>
+									<option value="Peru">Peru</option>
+									<option value="Venezuela">Venezuela</option>
+									<option value="Uruguay">Uruguay</option>
+									<option value="Otro">Otro...</option>
+								</select>
+								<div class="text-danger" th:if="${#fields.hasErrors('nacionalidad')}" th:errors="*{nacionalidad}"></div>
+							</div>
+						</div>
+						<div class="col">
+							<div>
+								<label class="form-label">ㅤ</label>
+								<input type="text" class="form-control" placeholder="Provincia" th:field="*{provincia}">
+								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div>
+						<input type="text" class="form-control" placeholder="Domicilio" th:field="*{domicilio}">
+						<div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card border-primary">
+				<div class="card-header border-primary">
+					<h4 class="text-center">Contacto</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col">
+							<input type="email" class="form-control" placeholder="E-mail" th:field="*{email}">
+							<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+						</div>
+							<div class="col">
+							<input type="tel" class="form-control" placeholder="Teléfono" th:field="*{telefono}">
+							<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card border-primary">
+				<div class="card-header border-primary">
+					<h4 class="text-center">Habilidades</h4>
+				</div>
+				<div class="card-body">
+					<div >
+						<label class="mb-2 form-label">Conocimientos Informaticos</label>
+						<select class="form-select" aria-label="Conocimientos" th:field=*{conocimientosInformaticos}>
+							<option value="Altos" >Altos</option>
+							<option value="Medios">Medios</option>
+							<option value="Bajos">Bajos</option>
+						</select>
+						<div class="text-danger" th:if="${#fields.hasErrors('conocimientosInformaticos')}" th:errors="*{conocimientosInformaticos}"></div>
+					</div>
+					<br>
+					<div class="form-floating">
+						<textarea class="form-control" id="informacionComplementaria" style="height: 100px" th:field="*{informacionComplementaria}"></textarea>
+						<label for="informacionComplementaria">Informacion Complementaria</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('informacionComplementaria')}" th:errors="*{informacionComplementaria}"></div>
+					</div>
+					<br>
+					<div class="form-floating">
+						<textarea class="form-control" id="datosAdicionales" style="height: 100px" th:field="*{datosAdicionales}"></textarea>
+						<label for="datosAdicionales">Datos Adicionales</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('datosAdicionales')}" th:errors="*{datosAdicionales}"></div>
+					</div>
+					<br>
+					<div class="form-floating">
+						<textarea class="form-control" id="idioma" style="height: 100px" th:field="*{idiomas}"></textarea>
+						<label for="idioma">Idiomas</label>
+						<div class="text-danger" th:if="${#fields.hasErrors('idiomas')}" th:errors="*{idiomas}"></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card border-primary">
+				<div class="card-header border-primary">
+					<h4 class="text-center">Experiencia Laboral</h4>
+				</div>
+				<div class="card-body">
+					<div>
+						<input type="text" class="form-control" placeholder="Establecimiento" th:field="*{establecimiento}">
+						<div class="text-danger" th:if="${#fields.hasErrors('establecimiento')}" th:errors="*{establecimiento}"></div>
+					</div>
+					<br>
+					<div>
+						<input type="text" class="form-control" placeholder="Puesto" th:field="*{puesto}">
+						<div class="text-danger" th:if="${#fields.hasErrors('puesto')}" th:errors="*{puesto}"></div>
+					</div>
+					<br>
+					<div>
+						<input type="text" class="form-control" placeholder="Duracion" th:field="*{duracion}">
+						<div class="text-danger" th:if="${#fields.hasErrors('duracion')}" th:errors="*{duracion}"></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="card border-primary">
+				<div class="card-header border-primary">
+					<h4 class="text-center">Estudios</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col">
+							<div>
+								<input type="text" class="form-control" placeholder="Secundaria" th:field="*{secundaria}">
+								<div class="text-danger" th:if="${#fields.hasErrors('secundaria')}" th:errors="*{secundaria}"></div>
+							</div>
+							<br>
+							<div>
+								<input type="text" class="form-control" placeholder="Universidad" th:field="*{universidad}">
+								<div class="text-danger" th:if="${#fields.hasErrors('universidad')}" th:errors="*{universidad}"></div>
+							</div>
+						</div>
+						<div class="col">
+							<div>
+								<input type="text" class="form-control" placeholder="Titulo Secundario" th:field="*{titulo_secundaria}">
+								<div class="text-danger" th:if="${#fields.hasErrors('titulo_secundaria')}" th:errors="*{titulo_secundaria}"></div>
+							</div>
+							<br>
+							<div>
+								<input type="text" class="form-control" placeholder="Titulo Universitario" th:field="*{titulo_universitario}">
+								<div class="text-danger" th:if="${#fields.hasErrors('titulo_universitario')}" th:errors="*{titulo_universitario}"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card border-light">
+				<div class="mb-3 pt-3">
+					<button type="submit" class="btn btn-outline-success">Guardar</button>
+					<a th:href="@{/login/ciudadano}" class="btn btn-outline-danger">Cancelar</a>
+				</div>
+			</div>
+			</form>
+		</div>
+		<br>
+		<footer th:replace="layouts/footer::footer"></footer>
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+	</body>
+</html>

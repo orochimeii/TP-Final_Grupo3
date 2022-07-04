@@ -5,13 +5,16 @@ import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.service.ICiudadanoService;
@@ -40,5 +43,34 @@ public class CiudadanoController {
 			ciudadanoService.registrar(ciudadano);
 		}
 		return "redirect:/login/ciudadano";
+	}
+	
+	@GetMapping("/ver")
+	public String ver(Model model, Authentication authentication) {
+		LOGGER.info(authentication.getName());
+		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
+		model.addAttribute("ciudadano", ciudadano);
+		return "ver_ciudadano";
+	}
+	
+	@GetMapping("/editar")
+	public String editar(Model model, Authentication authentication) {
+		LOGGER.info(authentication.getName());
+		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
+		model.addAttribute("ciudadano", ciudadano);
+		return "editar_ciudadano";
+	}
+	
+	@PostMapping("/editar")
+	public ModelAndView editarCiudadano(@Validated @ModelAttribute("ciudadano") Ciudadano ciudadano, BindingResult bindingResult, Authentication authentication) {
+		if(bindingResult.hasErrors()) {
+			ModelAndView modeloVista = new ModelAndView("editar_ciudadano");
+			modeloVista.addObject("ciudadano", ciudadano);
+			return modeloVista;
+			}
+		
+		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
+		ciudadanoService.registrar(ciudadano);
+		return modeloVista;
 	}
 }

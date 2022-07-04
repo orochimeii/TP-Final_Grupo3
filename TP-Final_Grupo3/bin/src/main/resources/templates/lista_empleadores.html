@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Lista de Ofertas</title>
+		<title>Lista de empleadores</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 	</head>
@@ -11,31 +11,29 @@
 		<header th:replace="/layouts/header :: header"></header>
 		<div class="container">
 			<br>
-			<p class="h4 mb-10">Ofertas Laborales</p>
+			<p class="h4 mb-10">Empleadores</p>
 			<br>
-			<div class="d-grid gap-2 d-md-flex justify-content-md-end" sec:authorize="hasAuthority('EMPLEADOR')">
-				<form class="d-flex" th:action="@{/crear_oferta}">
-					<button class="btn btn-warning">Nueva oferta</button>
-				</form>
-			</div><br>
 			<div class="col-12 d-flex justify-content-center">
 				<table class="table table-striped table-hover">
 						<tr>
-							<th>Puesto</th>
-							<th>Jornada</th>
-							<th>Requisitos</th>
-							<th>Salario</th>
-							<th>Opciones</th>
+							<th>Nombre</th>
+							<th>Email</th>
+							<th>Telefono</th>
+							<th>Pagina Web</th>
+							<th>Provincia</th>
 						</tr>	
-						<tr th:each="oferta: ${ofertas}">
-							<td th:text="${oferta.puestoRequerido}"></td>
-							<td th:text="${oferta.jornada}"></td>
-							<td th:text="${oferta.requisitos}"></td>
-							<td th:text="${oferta.salario}"></td>
+						<tr th:each="empleador: ${empleadores}">
+							<td th:text="${empleador.nombreComercial}"></td>
+							<td th:text="${empleador.email}"></td>
+							<td th:text="${empleador.telefono}"></td>
+							<td th:text="${empleador.paginaWeb}"></td>
+							<td th:text="${empleador.provincia}"></td>
 						</tr>
 					</table>
 				<br><br>
+				
 			</div>
+		
 		</div>
 		<footer th:replace="/layouts/footer :: footer"></footer>
 		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
