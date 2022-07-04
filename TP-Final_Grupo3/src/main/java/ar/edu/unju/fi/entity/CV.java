@@ -125,6 +125,14 @@ public class CV {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -320,6 +328,19 @@ public class CV {
 		this.informacionComplementaria = informacionComplementaria;
 		this.datosAdicionales = datosAdicionales;
 		this.ciudadano = ciudadano;
+	}
+
+	@Override
+	public String toString() {
+		return "CV [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento="
+				+ fechaNacimiento + ", nacionalidad=" + nacionalidad + ", provincia=" + provincia + ", domicilio="
+				+ domicilio + ", email=" + email + ", telefono=" + telefono + ", establecimiento=" + establecimiento
+				+ ", duracion=" + duracion + ", puesto=" + puesto + ", secundaria=" + secundaria
+				+ ", titulo_secundaria=" + titulo_secundaria + ", universidad=" + universidad
+				+ ", titulo_universitario=" + titulo_universitario + ", idiomas=" + idiomas
+				+ ", conocimientosInformaticos=" + conocimientosInformaticos + ", informacionComplementaria="
+				+ informacionComplementaria + ", datosAdicionales=" + datosAdicionales + ", ciudadano=" + ciudadano
+				+ "]";
 	}
 	
 	
