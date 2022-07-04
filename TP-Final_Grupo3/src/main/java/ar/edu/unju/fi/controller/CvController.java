@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ import ar.edu.unju.fi.service.ICiudadanoService;
 public class CvController {
 
 	
+	private static final Log LOGGER = LogFactory.getLog(CvController.class);
+	
 	@Autowired
 	ICVService cvService;
 	
@@ -29,9 +33,18 @@ public class CvController {
 	ICiudadanoService ciudadanoService;
 	
 	@GetMapping("/crear")
-	public String getFormularioPage(Model model) {
-		model.addAttribute("cvAlias", cvService.crearCV());
-		return "crear_cv";
+	public String getFormularioPage(Model model, Authentication authentication) {
+		
+		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
+		if(ciudadano.getCv()==null) {
+			LOGGER.info("Crear CV - "+authentication.getName());
+			model.addAttribute("cvAlias", cvService.crearCV());
+			return "crear_cv";
+		}else {
+			LOGGER.info("Ya tiene creado un CV ");
+			return "redirect:/cv/ver";
+		}
+		
 	}
 	
 	@PostMapping("/crear")
@@ -42,14 +55,13 @@ public class CvController {
 			return modeloVista;
 		}
 		
+		LOGGER.info("Crear CV - "+authentication.getName());
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
 		
-		if(ciudadano.getCv()==null) {
-			ciudadano.setCv(cv);
-			cv.setCiudadano(ciudadano);
+		ciudadano.setCv(cv);
+		cv.setCiudadano(ciudadano);
 			
-			ciudadanoService.registrar(ciudadano);
-		}
+		ciudadanoService.registrar(ciudadano);
 		
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
 		return modeloVista;
@@ -58,8 +70,15 @@ public class CvController {
 	@GetMapping("/editar")
 	public String editarCV(Model model, Authentication authentication) {
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
-		model.addAttribute("cvAlias", ciudadano.getCv());
-		return "editar_cv";
+		if(ciudadano.getCv()!=null) {
+			LOGGER.info("Editar CV");
+			model.addAttribute("cvAlias", ciudadano.getCv());
+			return "editar_cv";
+		}else {
+			LOGGER.info("No tiene un CV");
+			return "redirect:/cv/crear";
+		}
+		
 	}
 	
 	@PostMapping("/editar")
@@ -70,6 +89,7 @@ public class CvController {
 			return modeloVista;
 		}
 		
+		LOGGER.info("Editar CV - "+authentication.getName());
 		cvService.guardarCV(cv);
 		
 		ModelAndView modeloVista = new ModelAndView("redirect:/inicio");
@@ -78,6 +98,7 @@ public class CvController {
 	
 	@GetMapping("/ver")
 	public String verCV(Model model, Authentication authentication) {
+		LOGGER.info("Ver CV - "+authentication.getName());
 		Ciudadano ciudadano = ciudadanoService.findByDni(authentication.getName());
 		model.addAttribute("cvAlias", ciudadano.getCv());
 		return "ver_cv";
