@@ -11,8 +11,7 @@
 	
 		<div class="container col-6">
 			<h1 class="text-dark text-center pt-3 mb-3">Crear CV</h1>
-			<form th:action="@{/cv/editar}" method="post" th:object="${cvAlias}">
-			<input type="hidden" th:field="*{id}">
+			<form th:action="@{/cv/crear}" method="post" th:object="${cvAlias}">
 			<div class="card border-primary">
 				<div class="card-header border-primary">
 					<h4 class="text-center">Información Personal</h4>
@@ -187,7 +186,7 @@
 			<div class="card border-light">
 				<div class="mb-3 pt-3">
 					<button type="submit" class="btn btn-outline-success">Guardar</button>
-					<a th:href="@{/ciudadano/perfil}" class="btn btn-outline-danger">Cancelar</a>
+					<a th:href="@{/login/ciudadano}" class="btn btn-outline-danger">Cancelar</a>
 				</div>
 			</div>
 			</form>

@@ -25,12 +25,21 @@
 							<th>Jornada</th>
 							<th>Requisitos</th>
 							<th>Salario</th>
+							<th>Opciones</th>
 						</tr>	
 						<tr th:each="oferta: ${ofertas}">
 							<td th:text="${oferta.puestoRequerido}"></td>
 							<td th:text="${oferta.jornada}"></td>
 							<td th:text="${oferta.requisitos}"></td>
-							<td th:text="${oferta.salario}"></td>
+							<td th:text="'$'+${oferta.salario}"></td>
+							<td sec:authorize="hasAuthority('EMPLEADOR')">
+								<a th:href="@{/}" class="btn btn-sm btn-outline-warning">Editar</a>
+					      		<a th:href="@{/}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+							</td>
+							<td sec:authorize="hasAuthority('CIUDADANO')">
+								<a th:href="@{/}" class="btn btn-sm btn-outline-primary">Inscribirse</a>
+					      		<a th:href="@{/}" class="btn btn-sm btn-outline-primary">Ver</a>
+							</td>
 						</tr>
 					</table>
 				<br><br>

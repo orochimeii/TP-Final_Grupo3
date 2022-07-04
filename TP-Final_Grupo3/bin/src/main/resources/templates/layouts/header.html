@@ -13,39 +13,48 @@
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 					   <img id="logo" th:src="@{/images/Gruop3.png}" class="logo" width="40" height="40"/>
 				  <div class="container-fluid">
+				    <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				      <span class="navbar-toggler-icon"></span>
+				    </button>
 				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				      <li class="nav-item">
-				          <a class="nav-link active" th:href="@{/inicio}">Inicio</a>
-				        </li>
-				        <li class="nav-item" sec:authorize="isAuthenticated()">
+				        <li class="nav-item">
 				          <a class="nav-link active" th:href="@{/ofertas}">Ofertas Laborales</a>
 				        </li>
-				        <li class="nav-item dropdown" sec:authorize="hasAuthority('CIUDADANO')">
-				          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Ciudadano
+				        <li class="nav-item">
+				          <a class="nav-link active" th:href="@{/empleador/empleadores}">Empleadores</a>
+				        </li>
+				        <li class="nav-item dropdown">
+				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            Cursos
 				          </a>
 				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item" th:href="@{/ciudadano/perfil}">Perfil</a></li>
+				            <li><a class="dropdown-item" th:href="@{/cursos/desarrollo}">Desarrollo web</a></li>
+				            <li><a class="dropdown-item" th:href="@{/cursos/ingles}">Ingles</a></li>
 				            <li><hr class="dropdown-divider"></li>
-				            <li><a class="dropdown-item" th:href="@{/ciudadano/ver}">Ver</a></li>
-				            <li><a class="dropdown-item" th:href="@{/ciudadano/editar}">Editar</a></li>
+				            <li><a class="dropdown-item" th:href="@{/cursos/seguridad}">Seguridad</a></li>
+				            <li><a class="dropdown-item" th:href="@{/cursos/disenio}">Diseño UX/UI</a></li>
 				          </ul>
 				        </li>
 				      </ul>
-				      <ul class="navbar-nav me-0 mb-2 mb-lg-0 gap-2">
+				      <form class="d-flex">
+				        <input class="form-control me-2" type="search" placeholder="buscar" aria-label="Search">
+				        <button class="btn btn-outline-warning" type="submit">Buscar</button>
+				      </form>
+				      <ul class="navbar-nav me-0 mb-2 mb-lg-0">
 				      	<li class="nav-item" sec:authorize="isAuthenticated()">
 					      	<form class="d-flex" th:action="@{/logout}" method="POST">
-								<button class="btn btn-outline-warning">Cerrar sesión</button>
+								<button class="btn btn-outline-warning">Logout</button>
 							</form>
 						</li>
 						<li class="nav-item" sec:authorize="!isAuthenticated()">
 							<form class="d-flex" th:action="@{/login/ciudadano}">
-								<button class="btn btn-outline-warning">Iniciar sesión</button>
+								<button class="btn btn-outline-warning">Login</button>
 							</form>
 						</li>
 				      	<li class="nav-item">
-							<form class="d-flex" th:action="@{/empleador/registro}" sec:authorize="!isAuthenticated()">
+							<form class="d-flex" th:action="@{/empleador/registro}">
 								<button class="btn btn-warning">Crear cuenta</button>
 							</form>
 				      	</li>

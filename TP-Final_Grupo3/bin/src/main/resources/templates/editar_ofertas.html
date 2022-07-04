@@ -10,57 +10,58 @@
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
 		<div class="formulario">
-			<form th:object="${oferta}">
+			<form th:action="@{/ofertas}" method="POST" th:object="${oferta}">
 				<input type="hidden" th:field="*{id}">
 		        <div class="card">
 					<div class="card-header">
-						 <h4>Oferta Laboral</h4>
+						 <h4>Cree una oferta Laboral</h4>
 					</div>
 					<div class="mb-3">
 						<label for="cantidadDeVacantes" class="form-label">Vacantes</label> 
-						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000" disabled>
+						<input th:field=*{cantidadDeVacantes} type="number" class="form-control" id="cantidadDeVacantes" placeholder="000000000">
 					</div>
 					<div class="mb-3">
 						<label for="puestoRequerido" class="form-label">N° de Puestos Requeridos</label> 
-						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000" disabled>
+						<input th:field=*{puestoRequerido}  type="text" class="form-control" id="puestoRequerido" placeholder="0000">
 					</div>
 					<div class="mb-3">
 						<label for="resumenPuesto" class="form-label">Resumen</label> 
-						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="" disabled>
+						<input th:field=*{resumenPuesto} type="text" class="form-control" id="resumenPuesto" placeholder="">
 					</div>
 					<div class="mb-3">
 						<label for="disponibilidad" class="form-label">Disponibilidad Horaria</label> 
-						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00" disabled>
+						<input th:field=*{disponibilidad} type="text" class="form-control" id="disponibilidad" placeholder="00-00">
 					</div>
 					<div class="mb-3">
 						<label for="datosContacto" class="form-label">Datos de Contacto</label> 
-						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto" disabled>
+						<input th:field=*{datosContacto} type="text" class="form-control" id="datosContacto">
 					</div>
 					<div class="mb-3">
 						<label for="jornada" class="form-label">Jornada</label> 
-						<input th:field=*{jornada} type="text" class="form-control" id="jornada" disabled>
+						<input th:field=*{jornada} type="text" class="form-control" id="jornada">
 					</div>
 					<div class="mb-3">
 						<label for="requisitos" class="form-label">Requisitos</label> 
-						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos" disabled>
+						<input th:field=*{requisitos} type="text" class="form-control" id="requisitos">
 					</div>
 					<div class="mb-3">
 						<label for="salario" class="form-label">Salario</label> 
-						<input th:field=*{salario} type="number" class="form-control" id="salario" disabled>
+						<input th:field=*{salario} type="number" class="form-control" id="salario">
 					</div>
 					<div class="mb-3">
 						<label for="beneficios" class="form-label">Beneficios</label> 
-						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios" disabled>
+						<input th:field=*{beneficios} type="text" class="form-control" id="beneficios">
 					</div>
 					<div class="mb-3">
 						<label for="disponible" class="form-label">Disponible</label> 
-						<input th:field=*{disponible} type="text" class="form-control" id="disponible" disabled>
+						<input th:field=*{disponible} type="text" class="form-control" id="disponible">
 					</div>
 					<div class="mb-3" sec:authorize="!isAuthenticated()"> 
 						<input th:field='sec:authentication="name"' type="hidden" class="form-control" id="empleador">
 					</div>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-						<a th:href="@{/ciudadano/perfil}" id="cancel" class="btn btn-danger">Salir</a>
+						<button class="btn btn-primary me-md-2" type="submit">Guardar</button>
+						 <a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
 		  				<!-- <button class="btn btn-secondary" type="reset">Cancelar</button> -->
 					</div>
 				</div>

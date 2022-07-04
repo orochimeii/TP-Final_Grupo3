@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 	
@@ -44,13 +44,13 @@
 							<a class="text-secondary text-decoration-none" th:href="@{/inicio}">Inicio</a>
 							</div>
 					    <div class="mb-2">		
-						    <a class="text-secondary text-decoration-none" th:href="@{/ofertas}" sec:authorize="isAuthenticated()">Ofertas Laborales</a>
+						    <a class="text-secondary text-decoration-none" th:href="@{/ofertas}">Ofertas Laborales</a>
 							</div>
 						<div class="mb-2">		
-						    <a class="text-secondary text-decoration-none" th:href="@{/login/empleador}">Iniciar sesión</a>
+						    <a class="text-secondary text-decoration-none" th:href="@{/login/empleador}">Loguearse</a>
 						</div>
 						<div class="mb-2">		
-						    <a class="text-secondary text-decoration-none" th:href="@{/empleador/registro}">Crear cuenta</a>
+						    <a class="text-secondary text-decoration-none" th:href="@{/registro}">Registrarse</a>
 						</div>
 						
 					</div>

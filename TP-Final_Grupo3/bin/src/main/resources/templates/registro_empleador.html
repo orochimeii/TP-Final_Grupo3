@@ -9,7 +9,6 @@
 	
 	<body>
 		<header th:replace="/layouts/header :: header"></header>
-		<br>
 		<div class="container col-4">
 			<ul class="list-group list-group-horizontal justify-content-center">
 			  <li class="list-group-item"><a class="nav-link active" aria-current="page" th:href="@{/empleador/registro}">Registrarse como Empleador</a></li>
@@ -23,67 +22,47 @@
 			
 				<div class="mb-3">
 					<label for="cuit" class="form-label">CUIT</label> 
-					<input th:field="*{cuit}" type="number" class="form-control" id="cuit" placeholder="00-00000000-0" required>
-					<div class="alert-danger" thif="${#fields.hasErrors('cuit')}" therrors="*{cuit}"></div>
+					<input th:field="*{cuit}" type="number" class="form-control" id="cuit" placeholder="00-000000000-0">
 				</div>
 				<div class="mb-3">
 					<label for="contrasenia" class="form-label">Contraseña</label> 
-					<input th:field="*{contrasenia}" type="password" class="form-control" id="password" placeholder="********" required >
-					<div class="alert-danger" thif="${#fields.hasErrors('contrasenia')}" therrors="*{contrasenia}"></div>
-				
+					<input th:field="*{contrasenia}" type="password" class="form-control" id="password" placeholder="********">
 				</div>
 				<div class="mb-3">
 					<label for="razonSocial" class="form-label">Razon social</label> 
-					<input th:field="*{razonSocial}"  type="text" class="form-control" id="razonSocial" placeholder="Salchichas S.A." required >
-			        <div class="alert-danger" thif="${#fields.hasErrors('razonSocial')}" therrors="*{razonSocial}"></div>
+					<input th:field="*{razonSocial}"  type="text" class="form-control" id="razonSocial" placeholder="Salchichas S.A.">
 				</div>
 				<div class="mb-3">
 					<label for="nombreComercial" class="form-label">Nombre comercial</label> 
-					<input th:field="*{nombreComercial}" type="text" class="form-control" id="nombreComercial" placeholder="HotDoge" required >
-					<div class="alert-danger" thif="${#fields.hasErrors('nombreComercial')}" therrors="*{nombreComercial}"></div>
-			
+					<input th:field="*{nombreComercial}" type="text" class="form-control" id="nombreComercial" placeholder="HotDoge">
 				</div>
 				<div class="mb-3">
 					<label for="inicioDeActividad" class="form-label">Inicio de actividad</label> 
 					<input th:field="*{inicioDeActividad}" type="date" class="form-control" id="inicioDeActividad">
-				    <div class="alert-danger" thif="${#fields.hasErrors('inicioDeActividad')}" therrors="*{inicioDeActividad}"></div>
-				
 				</div>
 				<div class="mb-3">
 					<label for="email" class="form-label">Email</label> 
-					<input th:field="*{email}" type="email" class="form-control" id="email" placeholder="info@hotdoge.com" required >
-									<div class="alert-danger" thif="${#fields.hasErrors('email')}" therrors="*{email}"></div>
-				
+					<input th:field="*{email}" type="email" class="form-control" id="email" placeholder="info@hotdoge.com">
 				</div>
 				<div class="mb-3">
 					<label for="telefono" class="form-label">Telefono</label> 
-					<input th:field="*{telefono}" type="number" class="form-control" id="telefono" required >
-										<div class="alert-danger" thif="${#fields.hasErrors('telefono')}" therrors="*{telefono}"></div>
-					
+					<input th:field="*{telefono}" type="number" class="form-control" id="telefono">
 				</div>
 				<div class="mb-3">
-					<label for="domicilio" class="form-label">Domicilio</label> 
-					<input th:field="*{domicilio}" type="text" class="form-control" id="domicilio" required >
-										<div class="alert-danger" thif="${#fields.hasErrors('domicilio')}" therrors="*{domicilio}"></div>
-					
+					<label for="domicilio" class="form-label">Inicio de actividad</label> 
+					<input th:field="*{inicioDeActividad}" type="date" class="form-control" id="inicioDeActividad">
 				</div>
 				<div class="mb-3">
 					<label for="provincia" class="form-label">Provincia</label> 
-					<input th:field="*{provincia}" type="text" class="form-control" id="provincia" required >
-				<div class="alert-danger" thif="${#fields.hasErrors('provincia')}" therrors="*{provincia}"></div>
-				
+					<input th:field="*{provincia}" type="text" class="form-control" id="provincia">
 				</div>
 				<div class="mb-3">
 					<label for="paginaWeb" class="form-label">Pagina web</label> 
-					<input th:field="*{paginaWeb}" type="text" class="form-control" id="paginaWeb" placeholder="Hotdoge.com.ar" required >
-				<div class="alert-danger" thif="${#fields.hasErrors('paginaWeb')}" therrors="*{paginaWeb}"></div>
-				
+					<input th:field="*{paginaWeb}" type="text" class="form-control" id="paginaWeb" placeholder="Hotdoge.com.ar">
 				</div>
 				<div class="mb-3">
 					<label for="descripcion" class="form-label">Descripcion</label> 
-					<textarea th:field="*{descripcion}" class="form-control" id="descripcion" required ></textarea>
-				<div class="alert-danger" thif="${#fields.hasErrors('descripcion')}" therrors="*{descripcion}"></div>
-				
+					<textarea th:field="*{descripcion}" class="form-control" id="descripcion"></textarea>
 				</div>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button class="btn btn-primary me-md-2" type="submit">Enviar</button>

@@ -10,8 +10,8 @@
 		<header th:replace="layouts/header::header"></header>
 	
 		<div class="container col-6">
-			<h1 class="text-dark text-center pt-3 mb-3">Crear CV</h1>
-			<form th:action="@{/cv/editar}" method="post" th:object="${cvAlias}">
+			<h1 class="text-dark text-center pt-3 mb-3">CV</h1>
+			<form th:object="${cvAlias}">
 			<input type="hidden" th:field="*{id}">
 			<div class="card border-primary">
 				<div class="card-header border-primary">
@@ -20,11 +20,11 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
-							<input type="text" class="form-control" placeholder="Nombre" th:field="*{nombre}">
+							<input type="text" class="form-control" placeholder="Nombre" th:field="*{nombre}" disabled>
 							<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 						</div>
 							<div class="col">
-								<input type="text" class="form-control" placeholder="Apellido" th:field="*{apellido}">
+								<input type="text" class="form-control" placeholder="Apellido" th:field="*{apellido}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
 							</div>
 					</div>
@@ -32,12 +32,12 @@
 					<div class="row">
 						<div class="col">
 							<label class="form-label">Fecha de Nacimiento</label> 
-							<input type="date" class="form-control" placeholder="Fecha de Nacimiento" th:field="*{fechaNacimiento}">
+							<input type="date" class="form-control" placeholder="Fecha de Nacimiento" th:field="*{fechaNacimiento}" disabled>
 							<div class="text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 						</div>
 						<div class="col">
 							<label class="form-label">DNI</label> 
-							<input type="number" class="form-control" placeholder="DNI" th:field="*{dni}">
+							<input type="number" class="form-control" placeholder="DNI" th:field="*{dni}" disabled>
 							<div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 						<div class="col">
 							<div >
 								<label class="form-label">País de residencia</label>
-								<select class="form-select" aria-label="Nacionalidad" th:field=*{nacionalidad}>
+								<select class="form-select" aria-label="Nacionalidad" th:field=*{nacionalidad} disabled>
 									<option value="Argentina" >Argentina</option>
 									<option value="Brasil">Brasil</option>
 									<option value="Bolivia">Bolivia</option>
@@ -65,14 +65,14 @@
 						<div class="col">
 							<div>
 								<label class="form-label">ㅤ</label>
-								<input type="text" class="form-control" placeholder="Provincia" th:field="*{provincia}">
+								<input type="text" class="form-control" placeholder="Provincia" th:field="*{provincia}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
 							</div>
 						</div>
 					</div>
 					<br>
 					<div>
-						<input type="text" class="form-control" placeholder="Domicilio" th:field="*{domicilio}">
+						<input type="text" class="form-control" placeholder="Domicilio" th:field="*{domicilio}" disabled>
 						<div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
 					</div>
 				</div>
@@ -85,11 +85,11 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
-							<input type="email" class="form-control" placeholder="E-mail" th:field="*{email}">
+							<input type="email" class="form-control" placeholder="E-mail" th:field="*{email}" disabled>
 							<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 						</div>
 							<div class="col">
-							<input type="tel" class="form-control" placeholder="Teléfono" th:field="*{telefono}">
+							<input type="tel" class="form-control" placeholder="Teléfono" th:field="*{telefono}" disabled>
 							<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 						</div>
 					</div>
@@ -103,7 +103,7 @@
 				<div class="card-body">
 					<div >
 						<label class="mb-2 form-label">Conocimientos Informaticos</label>
-						<select class="form-select" aria-label="Conocimientos" th:field=*{conocimientosInformaticos}>
+						<select class="form-select" aria-label="Conocimientos" th:field=*{conocimientosInformaticos} disabled>
 							<option value="Altos" >Altos</option>
 							<option value="Medios">Medios</option>
 							<option value="Bajos">Bajos</option>
@@ -112,19 +112,19 @@
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" id="informacionComplementaria" style="height: 100px" th:field="*{informacionComplementaria}"></textarea>
+						<textarea class="form-control" id="informacionComplementaria" style="height: 100px" th:field="*{informacionComplementaria}" disabled></textarea>
 						<label for="informacionComplementaria">Informacion Complementaria</label>
 						<div class="text-danger" th:if="${#fields.hasErrors('informacionComplementaria')}" th:errors="*{informacionComplementaria}"></div>
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" id="datosAdicionales" style="height: 100px" th:field="*{datosAdicionales}"></textarea>
+						<textarea class="form-control" id="datosAdicionales" style="height: 100px" th:field="*{datosAdicionales}" disabled></textarea>
 						<label for="datosAdicionales">Datos Adicionales</label>
 						<div class="text-danger" th:if="${#fields.hasErrors('datosAdicionales')}" th:errors="*{datosAdicionales}"></div>
 					</div>
 					<br>
 					<div class="form-floating">
-						<textarea class="form-control" id="idioma" style="height: 100px" th:field="*{idiomas}"></textarea>
+						<textarea class="form-control" id="idioma" style="height: 100px" th:field="*{idiomas}" disabled></textarea>
 						<label for="idioma">Idiomas</label>
 						<div class="text-danger" th:if="${#fields.hasErrors('idiomas')}" th:errors="*{idiomas}"></div>
 					</div>
@@ -137,17 +137,17 @@
 				</div>
 				<div class="card-body">
 					<div>
-						<input type="text" class="form-control" placeholder="Establecimiento" th:field="*{establecimiento}">
+						<input type="text" class="form-control" placeholder="Establecimiento" th:field="*{establecimiento}" disabled>
 						<div class="text-danger" th:if="${#fields.hasErrors('establecimiento')}" th:errors="*{establecimiento}"></div>
 					</div>
 					<br>
 					<div>
-						<input type="text" class="form-control" placeholder="Puesto" th:field="*{puesto}">
+						<input type="text" class="form-control" placeholder="Puesto" th:field="*{puesto}" disabled>
 						<div class="text-danger" th:if="${#fields.hasErrors('puesto')}" th:errors="*{puesto}"></div>
 					</div>
 					<br>
 					<div>
-						<input type="text" class="form-control" placeholder="Duracion" th:field="*{duracion}">
+						<input type="text" class="form-control" placeholder="Duracion" th:field="*{duracion}" disabled>
 						<div class="text-danger" th:if="${#fields.hasErrors('duracion')}" th:errors="*{duracion}"></div>
 					</div>
 				</div>
@@ -161,23 +161,23 @@
 					<div class="row">
 						<div class="col">
 							<div>
-								<input type="text" class="form-control" placeholder="Secundaria" th:field="*{secundaria}">
+								<input type="text" class="form-control" placeholder="Secundaria" th:field="*{secundaria}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('secundaria')}" th:errors="*{secundaria}"></div>
 							</div>
 							<br>
 							<div>
-								<input type="text" class="form-control" placeholder="Universidad" th:field="*{universidad}">
+								<input type="text" class="form-control" placeholder="Universidad" th:field="*{universidad}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('universidad')}" th:errors="*{universidad}"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div>
-								<input type="text" class="form-control" placeholder="Titulo Secundario" th:field="*{titulo_secundaria}">
+								<input type="text" class="form-control" placeholder="Titulo Secundario" th:field="*{titulo_secundaria}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('titulo_secundaria')}" th:errors="*{titulo_secundaria}"></div>
 							</div>
 							<br>
 							<div>
-								<input type="text" class="form-control" placeholder="Titulo Universitario" th:field="*{titulo_universitario}">
+								<input type="text" class="form-control" placeholder="Titulo Universitario" th:field="*{titulo_universitario}" disabled>
 								<div class="text-danger" th:if="${#fields.hasErrors('titulo_universitario')}" th:errors="*{titulo_universitario}"></div>
 							</div>
 						</div>
@@ -186,8 +186,8 @@
 			</div>
 			<div class="card border-light">
 				<div class="mb-3 pt-3">
-					<button type="submit" class="btn btn-outline-success">Guardar</button>
-					<a th:href="@{/ciudadano/perfil}" class="btn btn-outline-danger">Cancelar</a>
+					<a th:href="@{/cv/editar}" class="btn btn-outline-warning">Editar</a>
+					<a th:href="@{/ciudadano/perfil}" class="btn btn-outline-danger">Salir</a>
 				</div>
 			</div>
 			</form>
